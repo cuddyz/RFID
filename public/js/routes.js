@@ -1,11 +1,12 @@
-rfidApp.config(function($stateProvider, $locationProvider) {
+rfidApp.config(['$stateProvider', '$locationProvider', function($stateProvider, $locationProvider) {
 
     $locationProvider.html5Mode(true);
 
     var homeState = {
         name: 'home',
         url: '/',
-        templateUrl: "/assets/views/home.html"
+        templateUrl: "/assets/views/home.html",
+        controller: "homeController"
     };
 
     var scannerState = {
@@ -26,9 +27,16 @@ rfidApp.config(function($stateProvider, $locationProvider) {
         templateUrl: "/assets/views/admin.html"
     };
 
+    var createState = {
+        name: 'create',
+        url: '/create',
+        templateUrl: '/assets/views/create.html'
+    };
+
     $stateProvider.state(homeState);
     $stateProvider.state(scannerState);
     $stateProvider.state(resultState);
     $stateProvider.state(adminState);
+    $stateProvider.state(createState);
 
-});
+}]);

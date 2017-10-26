@@ -1,6 +1,13 @@
-<div class="jumbotron get-started-page">
+<div class="jumbotron home-page">
     <img src="/assets/images/science_center.png" />
     <h1>Welcome to the St. Louis Science Center RIFD Game!</h1>
-    <p>Currently no games are being played, please click the button below to get started!</p>
-    <p><a class="btn btn-primary btn-lg" href="#" role="button">Start Game</a></p>
+    <div class="no-game" ng-if="!gameRunning">
+        <p>Currently no games are being played, please click the button below to get started!</p>
+        <p><a class="btn btn-primary btn-lg" ui-sref="create" ui-sref-active="active" role="button">Start Game</a></p>
+    </div>
+    <div class="live-game" ng-if="gameRunning">
+        <p>Currently there is a game being played, please click the button below if changes are needed!</p>
+        <p><a class="btn btn-primary btn-lg" ui-sref="admin" ui-sref-active="active" role="button">Edit Game</a></p>
+    </div>
+    <div
 </div>
