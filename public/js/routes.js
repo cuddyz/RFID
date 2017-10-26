@@ -5,25 +5,25 @@ rfidApp.config(function($stateProvider, $locationProvider) {
     var homeState = {
         name: 'home',
         url: '/',
-        template: '<h3>Home!</h3>'
+        templateUrl: "/assets/views/home.html"
     };
 
     var scannerState = {
         name: 'scanner',
         url: '/scanner',
-        template: '<h3>Scanner!</h3>'
+        templateUrl: "/assets/views/scanner.html"
     };
 
     var resultState = {
         name: 'result',
         url: '/result',
-        template: '<h3>Result!</h3>'
+        templateUrl: "/assets/views/result.html"
     };
 
     var adminState = {
         name: 'admin',
         url: '/admin',
-        template: '<h3>Admin!</h3>'
+        templateUrl: "/assets/views/admin.html"
     };
 
     $stateProvider.state(homeState);
