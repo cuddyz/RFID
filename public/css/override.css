@@ -3,3 +3,7 @@ a:hover,
 a:focus {
     color: inherit;
 }
+
+nav {
+    margin-bottom: 0px !important;
+}
