@@ -7,7 +7,7 @@ app.use('/assets', express.static(__dirname + "/public"));
 app.use('/modules', express.static(__dirname + '/node_modules'));
 app.set('view engine', 'ejs');
 
-app.get('/', function(req, res) {
+app.get('*', function(req, res) {
    res.render('index');
 });
 
