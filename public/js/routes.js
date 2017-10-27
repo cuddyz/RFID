@@ -1,4 +1,4 @@
-rfidApp.config(['$stateProvider', '$locationProvider', function($stateProvider, $locationProvider) {
+rfidApp.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', function($stateProvider, $locationProvider, $urlRouterProvider) {
 
     $locationProvider.html5Mode(true);
 
@@ -38,5 +38,7 @@ rfidApp.config(['$stateProvider', '$locationProvider', function($stateProvider, 
     $stateProvider.state(resultState);
     $stateProvider.state(adminState);
     $stateProvider.state(createState);
+
+    $urlRouterProvider.otherwise('/');
 
 }]);
