@@ -10,7 +10,11 @@
         </div>
         <div class="name-locations">
             <label>Name location</label>
-            <select class="form-control" ng-model="selectedLoc" ng-options="loc.id for loc in locNames"></select>
+            <div class="loc-name-group">
+                <select class="form-control" ng-model="selectedLoc" ng-options="loc.id for loc in locNames"></select>
+                <input class="form-control" ng-model="locName" placeholder="Enter location name..." type="text" />
+                <button type="button" class="btn btn-primary">Save</button>
+            </div>
         </div>
     </div>
 </div>

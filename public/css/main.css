@@ -25,3 +25,19 @@
     margin-top: 2rem;
 }
 
+.create-page .name-locations {
+    margin-top: 2rem;
+}
+
+.create-page .loc-name-group {
+    display: flex;
+}
+
+.create-page .loc-name-group select {
+     width: 40%;
+ }
+
+.create-page .loc-name-group input {
+    margin-right: 1rem;
+}
+
