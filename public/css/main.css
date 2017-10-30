@@ -1,3 +1,19 @@
+.primary {
+    color: #337ab7 !important;
+}
+
+.secondary {
+    color: #5cb85c !important;
+}
+
+.tertiary {
+    color: #5bc0de !important;
+}
+
+.bold {
+    font-weight: bold;
+}
+
 .home-page {
     text-align: center;
 }
@@ -36,4 +52,22 @@
 .create-page .loc-name-group select {
      width: 40%;
  }
+
+.create-page .num-scanners {
+    margin-top: 2rem;
+}
+
+.create-page .scanner-group {
+    display: flex;
+}
+
+.create-page .scanner-group input {
+    width: 40%;
+    margin-right: 1rem;
+}
+
+.create-page .scanner-group .total-scanners {
+    font-size: 16px;
+    font-style: italic;
+}
 

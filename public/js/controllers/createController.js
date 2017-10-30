@@ -2,6 +2,7 @@ rfidApp.controller('createController', ['$scope', function($scope) {
 
     $scope.gameType = "Standard";
     $scope.numLocations = 1;
+    $scope.numScanners = 1;
     $scope.selectedLoc = "";
 
     $scope.gameTypes = [
