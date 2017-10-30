@@ -30,7 +30,8 @@ rfidApp.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', fun
     var createState = {
         name: 'create',
         url: '/create',
-        templateUrl: '/assets/views/create.html'
+        templateUrl: "/assets/views/create.html",
+        controller: "createController"
     };
 
     $stateProvider.state(homeState);
