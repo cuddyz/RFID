@@ -1,1 +1,1 @@
-var rfidApp = angular.module("rfidApp", ['ui.router']);
+var rfidApp = angular.module("rfidApp", ['ui.router', 'ui.bootstrap']);
