@@ -27,9 +27,6 @@ rfidApp.controller('createController', ['$scope', function($scope) {
         if (!$scope.selectedLoc.id || $scope.selectedLoc.id > newValue) {
             $scope.selectedLoc = $scope.locNames[newValue - 1];
         }
-
     });
-
-
 
 }]);
