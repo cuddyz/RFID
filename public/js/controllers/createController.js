@@ -9,5 +9,21 @@ rfidApp.controller('createController', ['$scope', function($scope) {
         "Question"
     ];
 
+    $scope.locNames = [];
+
+    $scope.$watch('numLocations', function(newValue, oldValue) {
+        if (newValue - oldValue >= 0) {
+            var locationTemplate = {
+                id: newValue,
+                name: ""
+            };
+
+            $scope.locNames.push(locationTemplate);
+        } else {
+            $scope.locNames.pop();
+        }
+    });
+
+
 
 }]);
