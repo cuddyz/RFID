@@ -10,10 +10,18 @@
     display: flex;
 }
 
-.create-page .game-type {
-    width: 50%;
+.create-page .create-form {
     margin-left: auto;
     margin-right: auto;
+}
+
+.create-page .game-type {
+    width: 50vw;
     margin-top: 5rem;
+}
+
+.create-page .num-locations {
+    width: 20vw;
+    margin-top: 2rem;
 }
 
