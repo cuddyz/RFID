@@ -2,11 +2,15 @@
     <div class="create-form">
         <div class="game-type">
             <label>Game Type</label>
-            <select class="form-control" ng-model="gameType" ng-options="type for type in gameTypes "></select>
+            <select class="form-control" ng-model="gameType" ng-options="type for type in gameTypes"></select>
         </div>
         <div class="num-locations">
             <label>Number of locations</label>
             <input class="form-control" ng-model="numLocations" type="number" min="1" />
+        </div>
+        <div class="name-locations">
+            <label>Name location</label>
+            <select class="form-control" ng-model="selectedLoc" ng-options="loc.id for loc in locNames"></select>
         </div>
     </div>
 </div>

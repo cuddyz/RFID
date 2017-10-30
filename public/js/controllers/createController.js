@@ -2,6 +2,7 @@ rfidApp.controller('createController', ['$scope', function($scope) {
 
     $scope.gameType = "Standard";
     $scope.numLocations = 1;
+    $scope.selectedLoc = "";
 
     $scope.gameTypes = [
         "Standard",
@@ -22,6 +23,11 @@ rfidApp.controller('createController', ['$scope', function($scope) {
         } else {
             $scope.locNames.pop();
         }
+
+        if (!$scope.selectedLoc.id || $scope.selectedLoc.id > newValue) {
+            $scope.selectedLoc = $scope.locNames[newValue - 1];
+        }
+
     });
 
 
