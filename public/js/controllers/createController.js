@@ -5,6 +5,6 @@ rfidApp.controller('createController', ['$scope', function($scope) {
         "Question"
     ];
 
-    //Insert HTTP DB call to check if a game is calling
-    //If so set the gameRunning = true;
+    $scope.gameType = "Standard";
+
 }]);
