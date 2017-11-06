@@ -1,25 +1,24 @@
 <div class="create-page">
     <div class="create-form">
-        <div class="game-type">
-            <label>Game Type</label>
-            <select class="form-control" ng-model="gameType" ng-options="type for type in gameTypes"></select>
-        </div>
         <div class="num-locations">
             <label>Number of locations</label>
             <input class="form-control primary" ng-model="numLocations" ng-model-options='{ debounce: 500 }' ng-change="updateLocations(numLocations, '{{numLocations}}')" type="number" min="1" />
         </div>
         <div class="name-locations">
-            <label>Name location</label>
+            <label>Define location</label>
             <div class="loc-name-group">
                 <select class="form-control" ng-model="selectedLoc" ng-options="loc.id for loc in locNames"></select>
                 <input class="form-control" ng-model="selectedLoc.name" placeholder="Enter location name..." type="text" />
+                <input class="form-control small" placeholder="# of scanners" ng-model="selectedLoc.numScanners" ng-model-options='{ debounce: 500 }' ng-change="updateScanners(selectedLoc.numScanners, '{{selectedLoc.numScanners}}')" type="number" min="1" />
             </div>
         </div>
         <div class="num-scanners">
-            <label>Number of scanners per location</label>
+            <label>Define scanners at location {{ selectedLoc.id }}</label>
             <div class="scanner-group">
-                <input class="form-control secondary" ng-model="numScanners" type="number" min="1" />
-                <span class="total-scanners">Total scanners: <span class="primary bold">{{numLocations}}</span> x <span class="secondary bold">{{numScanners}}</span> = <span class="tertiary bold">{{numLocations * numScanners}}</span></span>
+                <select class="form-control secondary v-small" ng-model="selectedScanner" ng-options="scanner.id for scanner in selectedLoc.scanners"></select>
+                <select class="form-control small" ng-model="gameType" ng-options="type for type in gameTypes"></select>
+                <input class="form-control large" placeholder="Enter scanner text..." type="text" />
+                <!-- <span class="total-scanners">Total scanners: <span class="primary bold">{{numLocations}}</span> x <span class="secondary bold">{{numScanners}}</span> = <span class="tertiary bold">{{numLocations * numScanners}}</span></span> -->
             </div>
         </div>
     </div>
