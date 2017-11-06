@@ -16,9 +16,8 @@
             <label>Define scanners at location {{ selectedLoc.id }}</label>
             <div class="scanner-group">
                 <select class="form-control secondary v-small" ng-model="selectedScanner" ng-options="scanner.id for scanner in selectedLoc.scanners"></select>
-                <select class="form-control small" ng-model="gameType" ng-options="type for type in gameTypes"></select>
-                <input class="form-control large" placeholder="Enter scanner text..." type="text" />
-                <!-- <span class="total-scanners">Total scanners: <span class="primary bold">{{numLocations}}</span> x <span class="secondary bold">{{numScanners}}</span> = <span class="tertiary bold">{{numLocations * numScanners}}</span></span> -->
+                <select class="form-control small" ng-model="selectedScanner.type" ng-options="type for type in gameTypes"></select>
+                <input class="form-control large" ng-model="selectedScanner.text" placeholder="Enter scanner text..." type="text" />
             </div>
         </div>
     </div>
