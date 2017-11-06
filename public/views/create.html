@@ -6,7 +6,7 @@
         </div>
         <div class="num-locations">
             <label>Number of locations</label>
-            <input class="form-control primary" ng-model="numLocations" type="number" min="1" />
+            <input class="form-control primary" ng-model="numLocations" ng-model-options='{ debounce: 500 }' ng-change="updateLocations(numLocations, '{{numLocations}}')" type="number" min="1" />
         </div>
         <div class="name-locations">
             <label>Name location</label>

@@ -3,7 +3,15 @@ rfidApp.controller('createController', ['$scope', function($scope) {
     $scope.gameType = "Standard";
     $scope.numLocations = 1;
     $scope.numScanners = 1;
-    $scope.selectedLoc = "";
+    $scope.locNames = [];
+
+    var locationTemplate = {
+        id: 1,
+        name: ""
+    };
+
+    $scope.locNames.push(locationTemplate);
+    $scope.selectedLoc = $scope.locNames[0];
 
     $scope.gameTypes = [
         "Standard",
@@ -11,23 +19,28 @@ rfidApp.controller('createController', ['$scope', function($scope) {
         "Question"
     ];
 
-    $scope.locNames = [];
+    $scope.updateLocations = function(newValue, oldValue) {
+        var changeValue = newValue - oldValue;
+        if (changeValue >= 0) {
+            var counter = Number(oldValue) + 1;
+            while (counter <= newValue) {
+                var locationTemplate = {
+                    id: counter,
+                    name: ""
+                };
 
-    $scope.$watch('numLocations', function(newValue, oldValue) {
-        if (newValue - oldValue >= 0) {
-            var locationTemplate = {
-                id: newValue,
-                name: ""
-            };
-
-            $scope.locNames.push(locationTemplate);
+                $scope.locNames.push(locationTemplate);
+                counter++
+            }
         } else {
-            $scope.locNames.pop();
+            for (var i = 0; i < -changeValue; i++) {
+                $scope.locNames.pop();
+            }
         }
 
         if (!$scope.selectedLoc.id || $scope.selectedLoc.id > newValue) {
             $scope.selectedLoc = $scope.locNames[newValue - 1];
         }
-    });
+    };
 
 }]);
