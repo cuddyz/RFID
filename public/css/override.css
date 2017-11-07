@@ -7,3 +7,9 @@ a:focus {
 nav {
     margin-bottom: 0px !important;
 }
+
+label {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

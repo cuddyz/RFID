@@ -17,11 +17,11 @@
 }
 
 .create-page .num-locations {
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
 .create-page .location-details {
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
 .create-page .loc-detail-group {
@@ -29,7 +29,7 @@
 }
 
 .create-page .scanner-details {
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
 .create-page .scanner-group {
@@ -45,3 +45,8 @@
     margin-top: 1.5em;
 }
 
+.create-page .inline-label {
+    top: -1.5em;
+    font-size: .7em;
+    font-weight: bold;
+}

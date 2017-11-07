@@ -14,6 +14,22 @@
     font-weight: bold !important;
 }
 
+.vw-v-small {
+    width: 10vw !important;
+}
+
+.vw-small {
+    width: 15vw !important;
+}
+
+.vw-medium {
+    width: 20vw !important;
+}
+
+.vw-large {
+    width: 30vw !important;
+}
+
 .v-small {
     width: 25% !important;
 }
@@ -24,4 +40,12 @@
 
 .large {
     width: 60% !important;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
 }

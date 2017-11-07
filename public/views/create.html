@@ -1,23 +1,41 @@
 <div class="create-page">
     <div class="create-form">
         <div class="num-locations">
-            <label>Number of locations</label>
-            <input class="form-control primary" ng-model="numLocations" ng-model-options='{ debounce: 500 }' ng-change="updateLocations(numLocations, '{{numLocations}}')" type="number" min="1" />
+            <span class="relative">
+                <label class="inline-label">Number of locations</label>
+                <input class="form-control primary" ng-model="numLocations" ng-model-options='{ debounce: 500 }' ng-change="updateLocations(numLocations, '{{numLocations}}')" type="number" min="1" />
+            </span>
         </div>
         <div class="location-details">
-            <label>Define location</label>
             <div class="loc-detail-group">
-                <select class="form-control primary" ng-model="selectedLoc" ng-options="loc.id for loc in locNames"></select>
-                <input class="form-control" ng-model="selectedLoc.name" placeholder="Enter location name..." type="text" />
-                <input class="form-control secondary small" placeholder="# of scanners" ng-model="selectedLoc.numScanners" ng-model-options='{ debounce: 500 }' ng-change="updateScanners(selectedLoc.numScanners, '{{selectedLoc.numScanners}}')" type="number" min="1" />
+                <span class="relative">
+                    <label class="absolute inline-label">Location Number</label>
+                    <select class="form-control primary vw-v-small" ng-model="selectedLoc" ng-options="loc.id for loc in locNames"></select>
+                </span>
+                <span class="relative">
+                     <label class="absolute inline-label">Location Name</label>
+                    <input class="form-control vw-large" ng-model="selectedLoc.name" placeholder="Enter location name..." type="text" />
+                </span>
+                <span class="relative">
+                    <label class="absolute inline-label"># of Scanners</label>
+                    <input class="form-control secondary vw-v-small" placeholder="# of scanners" ng-model="selectedLoc.numScanners" ng-model-options='{ debounce: 500 }' ng-change="updateScanners(selectedLoc.numScanners, '{{selectedLoc.numScanners}}')" type="number" min="1" />
+                </span>
             </div>
         </div>
         <div class="scanner-details">
-            <label>Define scanners at location {{ selectedLoc.id }}</label>
             <div class="scanner-group">
-                <select class="form-control secondary v-small" ng-model="selectedScanner" ng-options="scanner.id for scanner in selectedLoc.scanners"></select>
-                <select class="form-control small" ng-model="selectedScanner.type" ng-options="type for type in gameTypes"></select>
-                <input class="form-control large" ng-model="selectedScanner.text" placeholder="Enter scanner text..." type="text" />
+                <span class="relative">
+                    <label class="inline-label absolute">Scanner Number (Location {{ selectedLoc.id }})</label>
+                    <select class="form-control secondary vw-small" ng-model="selectedScanner" ng-options="scanner.id for scanner in selectedLoc.scanners"></select>
+                </span>
+                <span class="relative">
+                    <label class="inline-label absolute">Scanner Type</label>
+                    <select class="form-control vw-small" ng-model="selectedScanner.type" ng-options="type for type in gameTypes"></select>
+                </span>
+                <span class="relative">
+                    <label class="inline-label absolute">Scanner Text</label>
+                    <input class="form-control vw-medium" ng-model="selectedScanner.text" placeholder="Enter scanner text..." type="text" />
+                </span>
             </div>
         </div>
         <button type="button" class="btn btn-primary">Submit</button>
