@@ -1,0 +1,27 @@
+.primary {
+    color: #337ab7 !important;
+}
+
+.secondary {
+    color: #5cb85c !important;
+}
+
+.tertiary {
+    color: #5bc0de !important;
+}
+
+.bold {
+    font-weight: bold !important;
+}
+
+.v-small {
+    width: 25% !important;
+}
+
+.small {
+    width: 40% !important;
+}
+
+.large {
+    width: 60% !important;
+}
