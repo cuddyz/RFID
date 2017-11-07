@@ -48,15 +48,15 @@
     margin-top: 2rem;
 }
 
-.create-page .name-locations {
+.create-page .location-details {
     margin-top: 2rem;
 }
 
-.create-page .loc-name-group {
+.create-page .loc-detail-group {
     display: flex;
 }
 
-.create-page .num-scanners {
+.create-page .scanner-details {
     margin-top: 2rem;
 }
 
@@ -67,11 +67,6 @@
 .create-page .scanner-group input {
     width: 40%;
     margin-right: 1rem;
-}
-
-.create-page .scanner-group .total-scanners {
-    font-size: 16px;
-    font-style: italic;
 }
 
 .create-page button {
