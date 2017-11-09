@@ -1,8 +1,8 @@
-rfidApp.controller('createController', ['$scope', function($scope) {
+rfidApp.controller('createController', ['$scope', '$http', function($scope, $http) {
 
     $scope.numLocations = 1;
     $scope.numScanners = 1;
-    $scope.locNames = [];
+    $scope.locations = [];
 
     $scope.gameTypes = [
         "Standard",
@@ -11,20 +11,20 @@ rfidApp.controller('createController', ['$scope', function($scope) {
     ];
 
     var locationTemplate = {
-        id: 1,
+        number: 1,
         name: "",
         numScanners: 1,
         scanners: [
             {
-                id: 1,
+                number: 1,
                 text: "",
                 type: $scope.gameTypes[0]
             }
         ]
     };
 
-    $scope.locNames.push(locationTemplate);
-    $scope.selectedLoc = $scope.locNames[0];
+    $scope.locations.push(locationTemplate);
+    $scope.selectedLoc = $scope.locations[0];
 
     $scope.updateLocations = function(newValue, oldValue) {
         var changeValue = newValue - oldValue;
@@ -32,29 +32,29 @@ rfidApp.controller('createController', ['$scope', function($scope) {
             var counter = Number(oldValue) + 1;
             while (counter <= newValue) {
                 var locationTemplate = {
-                    id: counter,
+                    number: counter,
                     name: "",
                     numScanners: 1,
                     scanners: [
                         {
-                            id: 1,
+                            number: 1,
                             text: "",
                             type: $scope.gameTypes[0]
                         }
                     ]
                 };
 
-                $scope.locNames.push(locationTemplate);
+                $scope.locations.push(locationTemplate);
                 counter++
             }
         } else {
             for (var i = 0; i < -changeValue; i++) {
-                $scope.locNames.pop();
+                $scope.locations.pop();
             }
         }
 
-        if (!$scope.selectedLoc.id || $scope.selectedLoc.id > newValue) {
-            $scope.selectedLoc = $scope.locNames[newValue - 1];
+        if (!$scope.selectedLoc.number || $scope.selectedLoc.number > newValue) {
+            $scope.selectedLoc = $scope.locations[newValue - 1];
         }
     };
 
@@ -64,7 +64,7 @@ rfidApp.controller('createController', ['$scope', function($scope) {
             var counter = Number(oldValue) + 1;
             while (counter <= newValue) {
                 var scannerTemplate = {
-                    id: counter,
+                    number: counter,
                     text: "",
                     type: $scope.gameTypes[0]
                 };
@@ -78,12 +78,32 @@ rfidApp.controller('createController', ['$scope', function($scope) {
             }
         }
 
-        if (!$scope.selectedScanner.id || $scope.selectedScanner.scanner.id > newValue) {
+        if (!$scope.selectedScanner.number || $scope.selectedScanner.scanner.number > newValue) {
             $scope.selectedScanner = $scope.selectedLoc.scanners[newValue - 1];
         }
     };
 
     $scope.$watch("selectedLoc", function() {
         $scope.selectedScanner = $scope.selectedLoc.scanners[0];
-    })
+    });
+
+    $scope.createGame = function() {
+
+        var game = {
+            name: "Test game",
+            locations: $scope.locations
+        };
+
+        $http({
+            method: "POST",
+            url: "/api/create-game",
+            data: game
+        }).then(function success(res) {
+            console.log(res);
+        }, function error(res) {
+            console.log("ERROR " + res);
+        });
+
+    };
+
 }]);

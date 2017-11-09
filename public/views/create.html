@@ -10,7 +10,7 @@
             <div class="loc-detail-group">
                 <span class="relative">
                     <label class="absolute inline-label">Location Number</label>
-                    <select class="form-control primary vw-v-small" ng-model="selectedLoc" ng-options="loc.id for loc in locNames"></select>
+                    <select class="form-control primary vw-v-small" ng-model="selectedLoc" ng-options="loc.number for loc in locations"></select>
                 </span>
                 <span class="relative">
                      <label class="absolute inline-label">Location Name</label>
@@ -25,8 +25,8 @@
         <div class="scanner-details">
             <div class="scanner-group">
                 <span class="relative">
-                    <label class="inline-label absolute">Scanner Number (Location {{ selectedLoc.id }})</label>
-                    <select class="form-control secondary vw-small" ng-model="selectedScanner" ng-options="scanner.id for scanner in selectedLoc.scanners"></select>
+                    <label class="inline-label absolute">Scanner Number (Location {{ selectedLoc.number }})</label>
+                    <select class="form-control secondary vw-small" ng-model="selectedScanner" ng-options="scanner.number for scanner in selectedLoc.scanners"></select>
                 </span>
                 <span class="relative">
                     <label class="inline-label absolute">Scanner Type</label>
@@ -38,6 +38,6 @@
                 </span>
             </div>
         </div>
-        <button type="button" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-primary" ng-click="createGame()">Submit</button>
     </div>
 </div>

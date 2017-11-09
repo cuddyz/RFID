@@ -10,13 +10,7 @@ var gameSchema = new Schema({
             number: Number,
             name: String,
             numScanners: Number,
-            scanners: [
-                {
-                    number: Number,
-                    text: String,
-                    type: String
-                }
-            ]
+            scanners: []
         }
     ]
 });
