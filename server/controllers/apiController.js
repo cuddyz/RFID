@@ -8,7 +8,7 @@ module.exports = function(app) {
 
     app.get('/api/active-game', function(req, res) {
         Games.findOne({ "active": true}, function(err, data) {
-           if (err) res.send("Error fetching games");
+           if (err) res.send("Error fetching active game");
 
            res.send(data);
         });
@@ -21,7 +21,7 @@ module.exports = function(app) {
             locations: req.body.locations
         });
         newGame.save(function(err) {
-            if (err) throw err;
+            if (err) res.send("Error creating game");
 
             res.send('Success');
         })
