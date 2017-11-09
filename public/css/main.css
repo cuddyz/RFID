@@ -1,4 +1,6 @@
-.home-page {
+.home-page,
+.create-page .live-game {
+    width: 100%;
     text-align: center;
 }
 

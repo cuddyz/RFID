@@ -1,5 +1,5 @@
 <div class="create-page">
-    <div class="create-form">
+    <div ng-if="!gameRunning" class="create-form">
         <div class="game-details">
             <div class="game-detail-group">
                 <span class="relative">
@@ -45,5 +45,9 @@
             </div>
         </div>
         <button type="button" class="btn btn-primary" ng-click="createGame()">Submit</button>
+    </div>
+    <div class="jumbotron live-game" ng-if="gameRunning">
+        <p>Currently there is a game being played, please click the button below if changes are needed!</p>
+        <p><a class="btn btn-primary" ui-sref="admin" ui-sref-active="active" role="button">Edit Game</a></p>
     </div>
 </div>

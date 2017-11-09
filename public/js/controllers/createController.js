@@ -1,4 +1,15 @@
-rfidApp.controller('createController', ['$scope', '$http', '$state', function($scope, $http, $state) {
+rfidApp.controller('createController', ['$scope', '$http', '$state', 'CurrentGame', function($scope, $http, $state, CurrentGame) {
+    $scope.gameRunning = false;
+
+    CurrentGame.get().$promise.then(function success(data) {
+        console.log(data);
+        if (data.active) {
+            $scope.gameRunning = true;
+        }
+    }, function error(res) {
+        console.log("ERROR " + res);
+    });
+
 
     $scope.gameName = "";
     $scope.numLocations = 1;
