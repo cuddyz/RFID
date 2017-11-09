@@ -1,6 +1,15 @@
-rfidApp.controller('homeController', ['$scope', function($scope) {
+rfidApp.controller('homeController', ['$scope', '$http', function($scope, $http) {
     $scope.gameRunning = false;
 
-    //Insert HTTP DB call to check if a game is calling
-    //If so set the gameRunning = true;
+    $http({
+        method: "GET",
+        url: "/api/active-game"
+    }).then(function success(res) {
+        console.log(res);
+        if (res.data.active) {
+            $scope.gameRunning = true;
+        }
+    }, function error(res) {
+        console.log("ERROR " + res);
+    });
 }]);
