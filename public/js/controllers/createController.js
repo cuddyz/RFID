@@ -1,5 +1,6 @@
-rfidApp.controller('createController', ['$scope', '$http', function($scope, $http) {
+rfidApp.controller('createController', ['$scope', '$http', '$state', function($scope, $http, $state) {
 
+    $scope.gameName = "";
     $scope.numLocations = 1;
     $scope.numScanners = 1;
     $scope.locations = [];
@@ -90,7 +91,7 @@ rfidApp.controller('createController', ['$scope', '$http', function($scope, $htt
     $scope.createGame = function() {
 
         var game = {
-            name: "Test game",
+            name: $scope.gameName,
             locations: $scope.locations
         };
 
@@ -100,6 +101,7 @@ rfidApp.controller('createController', ['$scope', '$http', function($scope, $htt
             data: game
         }).then(function success(res) {
             console.log(res);
+            $state.transitionTo('home');
         }, function error(res) {
             console.log("ERROR " + res);
         });

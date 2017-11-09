@@ -30,6 +30,10 @@
     width: 30vw !important;
 }
 
+.vw-v-large {
+    width: 35vw !important;
+}
+
 .v-small {
     width: 25% !important;
 }

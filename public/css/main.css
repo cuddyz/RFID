@@ -16,27 +16,19 @@
     width: 50vw;
 }
 
-.create-page .num-locations {
-    margin-top: 3rem;
-}
-
-.create-page .location-details {
-    margin-top: 3rem;
-}
-
-.create-page .loc-detail-group {
-    display: flex;
-}
-
+.create-page .game-detail-group,
+.create-page .location-details,
 .create-page .scanner-details {
     margin-top: 3rem;
 }
 
-.create-page .scanner-group {
+.create-page .game-detail-group,
+.create-page .loc-detail-group,
+.create-page .scanner-detail-group {
     display: flex;
 }
 
-.create-page .scanner-group input {
+.create-page .scanner-detail-group input {
     width: 40%;
     margin-right: 1rem;
 }

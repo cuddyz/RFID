@@ -1,10 +1,16 @@
 <div class="create-page">
     <div class="create-form">
-        <div class="num-locations">
-            <span class="relative">
-                <label class="inline-label">Number of locations</label>
-                <input class="form-control primary" ng-model="numLocations" ng-model-options='{ debounce: 500 }' ng-change="updateLocations(numLocations, '{{numLocations}}')" type="number" min="1" />
-            </span>
+        <div class="game-details">
+            <div class="game-detail-group">
+                <span class="relative">
+                    <label class="inline-label">Game Name</label>
+                    <input class="form-control vw-v-large" ng-model="gameName" placeholder="Enter game name..." type="text" />
+                </span>
+                <span class="relative">
+                    <label class="inline-label">Number of locations</label>
+                    <input class="form-control primary vw-small" ng-model="numLocations" ng-model-options='{ debounce: 500 }' ng-change="updateLocations(numLocations, '{{numLocations}}')" type="number" min="1" />
+                </span>
+            </div>
         </div>
         <div class="location-details">
             <div class="loc-detail-group">
@@ -23,7 +29,7 @@
             </div>
         </div>
         <div class="scanner-details">
-            <div class="scanner-group">
+            <div class="scanner-detail-group">
                 <span class="relative">
                     <label class="inline-label absolute">Scanner Number (Location {{ selectedLoc.number }})</label>
                     <select class="form-control secondary vw-small" ng-model="selectedScanner" ng-options="scanner.number for scanner in selectedLoc.scanners"></select>
