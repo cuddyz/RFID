@@ -1,4 +1,4 @@
-rfidApp.controller('createController', ['$scope', '$http', '$state', 'CurrentGame', function($scope, $http, $state, CurrentGame) {
+rfidApp.controller('createController', ['$scope', '$state', 'CurrentGame', function($scope, $state, CurrentGame) {
     $scope.gameRunning = false;
 
     CurrentGame.get().$promise.then(function success(data) {

@@ -1,5 +1,6 @@
 .home-page,
-.create-page .live-game {
+.create-page .live-game,
+.admin-page .no-live-game {
     width: 100%;
     text-align: center;
 }
