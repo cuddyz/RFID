@@ -1,1 +1,53 @@
-<h1>Edit</h1>
+<div class="edit-page">
+    <div ng-show="gameRunning" class="edit-form">
+        <div class="game-details">
+            <div class="game-detail-group">
+                <span class="relative">
+                    <label class="inline-label">Game Name</label>
+                    <input class="form-control vw-v-large" ng-model="gameName" placeholder="Enter game name..." type="text" />
+                </span>
+                <span class="relative">
+                    <label class="inline-label">Number of locations</label>
+                    <input class="form-control primary vw-small" ng-model="numLocations" ng-model-options='{ debounce: 500 }' ng-change="updateLocations(numLocations, '{{numLocations}}')" type="number" min="1" />
+                </span>
+            </div>
+        </div>
+        <div class="location-details">
+            <div class="loc-detail-group">
+                <span class="relative">
+                    <label class="absolute inline-label">Location Number</label>
+                    <select class="form-control primary vw-v-small" ng-model="selectedLoc" ng-options="loc.number for loc in locations"></select>
+                </span>
+                <span class="relative">
+                     <label class="absolute inline-label">Location Name</label>
+                    <input class="form-control vw-large" ng-model="selectedLoc.name" placeholder="Enter location name..." type="text" />
+                </span>
+                <span class="relative">
+                    <label class="absolute inline-label"># of Scanners</label>
+                    <input class="form-control secondary vw-v-small" placeholder="# of scanners" ng-model="selectedLoc.numScanners" ng-model-options='{ debounce: 500 }' ng-change="updateScanners(selectedLoc.numScanners, '{{selectedLoc.numScanners}}')" type="number" min="1" />
+                </span>
+            </div>
+        </div>
+        <div class="scanner-details">
+            <div class="scanner-detail-group">
+                <span class="relative">
+                    <label class="inline-label absolute">Scanner Number (Location {{ selectedLoc.number }})</label>
+                    <select class="form-control secondary vw-small" ng-model="selectedScanner" ng-options="scanner.number for scanner in selectedLoc.scanners"></select>
+                </span>
+                <span class="relative">
+                    <label class="inline-label absolute">Scanner Type</label>
+                    <select class="form-control vw-small" ng-model="selectedScanner.type" ng-options="type for type in gameTypes"></select>
+                </span>
+                <span class="relative">
+                    <label class="inline-label absolute">Scanner Text</label>
+                    <input class="form-control vw-medium" ng-model="selectedScanner.text" placeholder="Enter scanner text..." type="text" />
+                </span>
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary" ng-click="createGame()">Submit</button>
+    </div>
+    <div class="jumbotron no-live-game" ng-if="!gameRunning">
+        <p>Currently there isn't a game being played, please click the button below to start one!</p>
+        <p><a class="btn btn-primary" ui-sref="create" ui-sref-active="active" role="button">Create Game</a></p>
+    </div>
+</div>

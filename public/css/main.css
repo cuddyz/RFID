@@ -1,6 +1,7 @@
 .home-page,
 .create-page .live-game,
-.admin-page .no-live-game {
+.admin-page .no-live-game,
+.edit-page .no-live-game {
     width: 100%;
     text-align: center;
 }
@@ -9,11 +10,13 @@
     height: 175px;
 }
 
-.create-page {
+.create-page,
+.edit-page {
     display: flex;
 }
 
-.create-page .create-form {
+.create-page .create-form,
+.edit-page .edit-form {
     margin-left: auto;
     margin-right: auto;
     width: 50vw;
@@ -21,26 +24,35 @@
 
 .create-page .game-detail-group,
 .create-page .location-details,
-.create-page .scanner-details {
+.create-page .scanner-details,
+.edit-page .game-detail-group,
+.edit-page .location-details,
+.edit-page .scanner-details{
     margin-top: 3rem;
 }
 
 .create-page .game-detail-group,
 .create-page .loc-detail-group,
-.create-page .scanner-detail-group {
+.create-page .scanner-detail-group,
+.edit-page .game-detail-group,
+.edit-page .loc-detail-group,
+.edit-page .scanner-detail-group {
     display: flex;
 }
 
-.create-page .scanner-detail-group input {
+.create-page .scanner-detail-group input,
+.edit-page .scanner-detail-group input {
     width: 40%;
     margin-right: 1rem;
 }
 
-.create-page button {
+.create-page button,
+.edit-page button {
     margin-top: 1.5em;
 }
 
-.create-page .inline-label {
+.create-page .inline-label,
+.edit-page .inline-label {
     top: -1.5em;
     font-size: .7em;
     font-weight: bold;
