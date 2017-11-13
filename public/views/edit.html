@@ -44,7 +44,10 @@
                 </span>
             </div>
         </div>
-        <button type="button" class="btn btn-primary" ng-click="createGame()">Submit</button>
+        <div class="form-footer">
+            <button type="button" class="btn btn-primary" ng-click="updateGame()">Update</button>
+            <div class="alert alert-warning" role="alert"><span>Warning! This will update the currently running game!</span></div>
+        </div>
     </div>
     <div class="jumbotron no-live-game" ng-if="!gameRunning">
         <p>Currently there isn't a game being played, please click the button below to start one!</p>

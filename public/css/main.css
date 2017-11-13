@@ -46,8 +46,7 @@
     margin-right: 1rem;
 }
 
-.create-page button,
-.edit-page button {
+.create-page button {
     margin-top: 1.5em;
 }
 
@@ -86,4 +85,17 @@
 
 .admin-page .location-details a {
     cursor: pointer;
+}
+
+.edit-page .form-footer {
+    display: flex;
+    align-items: center;
+    margin-top: 1.5em;
+}
+
+.edit-page .alert {
+    width: 100%;
+    margin-left: 2rem;
+    margin-bottom: 0px;
+    padding: 6px 12px;
 }
