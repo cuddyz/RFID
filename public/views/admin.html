@@ -13,28 +13,15 @@
                     </h4>
                 </div>
                 <div id="location{{ location.number }}" class="panel-collapse collapse">
-                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-                </div>
-            </div>
-
-
-        <!--
-        <h3>Game name: {{ game.name }}</h3>
-        <p>Number of locations: {{ game.locations.length }}</p>
-        <div class="game-details">
-            <div class="location-details" ng-repeat="location in game.locations">
-                <p>Location number: {{ location.number }}</p>
-                <p>Location name: {{ location.name }}</p>
-                <p>Number of scanners: {{ location.numScanners }}</p>
-                <div class="scanner-details" ng-repeat="scanner in location.scanners">
-                    <p>Scanner number: {{ scanner.number }}</p>
-                    <p>Scanner type: {{ scanner.type }}</p>
-                    <p>Scanner text: {{ scanner.text }}</p>
+                    <ul class="list-group">
+                        <li class="list-group-item scanner-details" ng-repeat="scanner in location.scanners">
+                            <span class="bold pr-1">Scanner {{ scanner.number }}</span>
+                            <span class="pr-1"><span class="bold">Type:</span> {{ scanner.type }}</span>
+                            <span class="pr-1"><span class="bold">Text:</span> {{ scanner.text }}</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-        -->
     </div>
 </div>
