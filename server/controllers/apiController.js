@@ -28,8 +28,6 @@ module.exports = function(app) {
     });
 
     app.put('/api/edit-game', function(req, res) {
-        console.log(req.body);
-
         Games.findByIdAndUpdate(req.body.id,
             {   name: req.body.name,
                 locations: req.body.locations }, function(err) {

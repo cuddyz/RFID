@@ -91,7 +91,6 @@ rfidApp.controller('editController', ['$scope', 'CurrentGame', '$http', '$state'
     });
 
     $scope.updateGame = function() {
-
         var game = {
             name: $scope.gameName,
             locations: $scope.locations,
@@ -109,5 +108,4 @@ rfidApp.controller('editController', ['$scope', 'CurrentGame', '$http', '$state'
             console.log("ERROR " + res);
         });
     };
-
 }]);
