@@ -108,4 +108,12 @@ rfidApp.controller('editController', ['$scope', 'CurrentGame', '$http', '$state'
             console.log("ERROR " + res);
         });
     };
+
+    $scope.deactivateGame = function() {
+        var answer = confirm("Are you sure you wish to deactivate the current game?");
+
+        if (answer) {
+            //HTTP PUT
+        }
+    };
 }]);

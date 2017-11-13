@@ -74,6 +74,10 @@
 
 .admin-page .game-detail-header .edit-button {
     margin-left: auto;
+}
+
+.admin-page .game-detail-header .edit-button,
+.admin-page .game-detail-header .deactivate-button {
     margin-top: 1rem;
     margin-right: 1rem;
 }
@@ -95,7 +99,11 @@
 
 .edit-page .alert {
     width: 100%;
-    margin-left: 2rem;
+    margin-left: 1rem;
     margin-bottom: 0px;
     padding: 6px 12px;
+}
+
+.edit-page .deactivate-button {
+    margin-left: 1rem;
 }
