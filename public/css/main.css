@@ -56,3 +56,18 @@
 .panel-heading .header.collapsed:after {
     content: "\e080";
 }
+
+.admin-page .game-detail-header {
+    display: flex;
+}
+
+.admin-page .game-detail-header .edit-button {
+    margin-left: auto;
+    margin-top: 1rem;
+    margin-right: 1rem;
+}
+
+.admin-page .title {
+    padding-left: 2rem;
+    margin-top: 1rem;
+}

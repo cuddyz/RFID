@@ -4,7 +4,10 @@
         <p><a class="btn btn-primary" ui-sref="create" ui-sref-active="active" role="button">Create Game</a></p>
     </div>
     <div ng-if="gameRunning">
-        <h4>Locations</h4>
+        <div class="game-detail-header">
+            <h3 class="title">{{ game.name }}</h3>
+            <p class="edit-button"><a class="btn btn-primary right" ui-sref="admin" ui-sref-active="active" role="button">Edit Game</a></p>
+        </div>
         <div class="panel-group accordion" id="accordion">
             <div class="location-details panel panel-default" ng-repeat="location in game.locations">
                 <div class="panel-heading">
