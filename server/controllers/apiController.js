@@ -35,7 +35,14 @@ module.exports = function(app) {
             });
 
         res.send('Success');
-    })
+    });
 
+    app.put('/api/deactivate-game', function(req, res) {
+        Games.findByIdAndUpdate(req.body.id,
+            {   active: false }, function(err) {
+                if (err) res.send("Error deactivating game");
+            });
 
+        res.send('Success');
+    });
 };
