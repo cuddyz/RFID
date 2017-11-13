@@ -6,7 +6,7 @@
     <div ng-if="gameRunning">
         <div class="game-detail-header">
             <h3 class="title">{{ game.name }}</h3>
-            <p class="edit-button"><a class="btn btn-primary right" ui-sref="admin" ui-sref-active="active" role="button">Edit Game</a></p>
+            <p class="edit-button"><a class="btn btn-primary right" ui-sref="edit" ui-sref-active="active" role="button">Edit Game</a></p>
         </div>
         <div class="panel-group accordion" id="accordion">
             <div class="location-details panel panel-default" ng-repeat="location in game.locations">
