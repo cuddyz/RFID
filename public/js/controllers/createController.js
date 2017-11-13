@@ -1,4 +1,4 @@
-rfidApp.controller('createController', ['$scope', '$state', 'CurrentGame', function($scope, $state, CurrentGame) {
+rfidApp.controller('createController', ['$scope', '$http', '$state', 'CurrentGame', function($scope, $http, $state, CurrentGame) {
     $scope.gameRunning = false;
 
     CurrentGame.get().$promise.then(function success(data) {
@@ -9,7 +9,6 @@ rfidApp.controller('createController', ['$scope', '$state', 'CurrentGame', funct
     }, function error(res) {
         console.log("ERROR " + res);
     });
-
 
     $scope.gameName = "";
     $scope.numLocations = 1;
@@ -90,7 +89,7 @@ rfidApp.controller('createController', ['$scope', '$state', 'CurrentGame', funct
             }
         }
 
-        if (!$scope.selectedScanner.number || $scope.selectedScanner.scanner.number > newValue) {
+        if (!$scope.selectedScanner.number || $scope.selectedScanner.number > newValue) {
             $scope.selectedScanner = $scope.selectedLoc.scanners[newValue - 1];
         }
     };
