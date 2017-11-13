@@ -4,6 +4,23 @@
         <p><a class="btn btn-primary" ui-sref="create" ui-sref-active="active" role="button">Create Game</a></p>
     </div>
     <div ng-if="gameRunning">
+        <h4>Locations</h4>
+        <div class="panel-group accordion" id="accordion">
+            <div class="location-details panel panel-default" ng-repeat="location in game.locations">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#location{{ location.number }}"><i class="fa fa-chevron-right"></i>{{ location.number }}. {{location.name}}</a>
+                    </h4>
+                </div>
+                <div id="location{{ location.number }}" class="panel-collapse collapse">
+                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                </div>
+            </div>
+
+
+        <!--
         <h3>Game name: {{ game.name }}</h3>
         <p>Number of locations: {{ game.locations.length }}</p>
         <div class="game-details">
@@ -18,5 +35,6 @@
                 </div>
             </div>
         </div>
+        -->
     </div>
 </div>
