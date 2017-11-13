@@ -112,7 +112,7 @@ rfidApp.controller('createController', ['$scope', '$state', 'CurrentGame', funct
             data: game
         }).then(function success(res) {
             console.log(res);
-            $state.transitionTo('home');
+            $state.transitionTo('admin');
         }, function error(res) {
             console.log("ERROR " + res);
         });

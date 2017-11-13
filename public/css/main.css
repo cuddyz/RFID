@@ -45,3 +45,9 @@
     font-size: .7em;
     font-weight: bold;
 }
+
+.admin-page .location-details,
+.admin-page .scanner-details {
+    margin-top: 3rem;
+    margin-left: 5rem;
+}

@@ -5,5 +5,19 @@
     </div>
     <div ng-if="gameRunning">
         <h3>Summary of game running</h3>
+        <div class="game-details">
+            <p>Game name: {{ game.name }}</p>
+            <p>Number of locations: {{ game.locations.length }}</p>
+            <div class="location-details" ng-repeat="location in game.locations">
+                <p>Location number: {{ location.number }}</p>
+                <p>Location name: {{ location.name }}</p>
+                <p>Number of scanners: {{ location.numScanners }}</p>
+                <div class="scanner-details" ng-repeat="scanner in location.scanners">
+                    <p>Scanner number: {{ scanner.number }}</p>
+                    <p>Scanner type: {{ scanner.type }}</p>
+                    <p>Scanner text: {{ scanner.text }}</p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
