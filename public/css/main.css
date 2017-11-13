@@ -71,3 +71,7 @@
     padding-left: 2rem;
     margin-top: 1rem;
 }
+
+.admin-page .location-details a {
+    cursor: pointer;
+}
