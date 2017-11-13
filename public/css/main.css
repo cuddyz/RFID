@@ -45,3 +45,14 @@
     font-size: .7em;
     font-weight: bold;
 }
+
+.panel-heading .header:after {
+    font-family: 'Glyphicons Halflings';
+    content: "\e114";
+    float: left;
+    color: grey;
+    padding-right: 1rem;
+}
+.panel-heading .header.collapsed:after {
+    content: "\e080";
+}

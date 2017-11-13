@@ -9,7 +9,7 @@
             <div class="location-details panel panel-default" ng-repeat="location in game.locations">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#location{{ location.number }}"><i class="fa fa-chevron-right"></i>{{ location.number }}. {{location.name}}</a>
+                        <a class="header collapsed" data-toggle="collapse" data-parent="#accordion" href="#location{{ location.number }}">{{location.name}} (Location {{ location.number }})</a>
                     </h4>
                 </div>
                 <div id="location{{ location.number }}" class="panel-collapse collapse">

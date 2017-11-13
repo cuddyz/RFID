@@ -10,4 +10,9 @@ rfidApp.controller('adminController', ['$scope', 'CurrentGame', function($scope,
     }, function error(res) {
         console.log("ERROR " + res);
     });
+
+    $scope.checkCollapsed = function (event) {
+        console.log(event)
+
+    }
 }]);
