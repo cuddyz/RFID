@@ -1,4 +1,4 @@
-rfidApp.controller('editController', ['$scope', 'CurrentGame', function($scope, CurrentGame) {
+rfidApp.controller('editController', ['$scope', 'CurrentGame', '$http', '$state', function($scope, CurrentGame, $http, $state) {
     $scope.gameRunning = false;
 
     $scope.gameTypes = [
@@ -85,20 +85,22 @@ rfidApp.controller('editController', ['$scope', 'CurrentGame', function($scope, 
     };
 
     $scope.$watch("selectedLoc", function() {
-        $scope.selectedScanner = $scope.selectedLoc.scanners[0];
+        if ($scope.selectedLoc) {
+            $scope.selectedScanner = $scope.selectedLoc.scanners[0];
+        }
     });
 
     $scope.updateGame = function() {
 
         var game = {
             name: $scope.gameName,
-            locations: $scope.locations
+            locations: $scope.locations,
+            id: $scope.game._id
         };
 
-        /*
         $http({
-            method: "POST",
-            url: "/api/create-game",
+            method: "PUT",
+            url: "/api/edit-game",
             data: game
         }).then(function success(res) {
             console.log(res);
@@ -106,13 +108,6 @@ rfidApp.controller('editController', ['$scope', 'CurrentGame', function($scope, 
         }, function error(res) {
             console.log("ERROR " + res);
         });
-        */
-
     };
-
-
-
-
-
 
 }]);
