@@ -1,1 +1,9 @@
-<h3>Scanner!</h3>
+<div class="scanners-page">
+    <div ng-if="gameRunning">
+        <h1>Game Running</h1>
+    </div>
+    <div class="jumbotron no-live-game" ng-if="!gameRunning">
+        <p>Currently there isn't a game being played, please click the button below to start one!</p>
+        <p><a class="btn btn-primary" ui-sref="create" ui-sref-active="active" role="button">Create Game</a></p>
+    </div>
+</div>
