@@ -1,1 +1,8 @@
-<h1>SCAN</h1>
+<div class="scan-page">
+    <div ng-if="validScanner">
+        <h1>Valid Scanner</h1>
+    </div>
+    <div ng-if="!validScanner">
+        <h1>Invalid Scanner</h1>
+    </div>
+</div>
