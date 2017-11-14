@@ -1,9 +1,9 @@
 <div class="scanners-page">
-    <div ng-if="gameRunning">
-        <div class="locations" ng-repeat="location in game.locations">
-            <h3>{{location.name}} (Location {{ location.number }})</h3>
-            <ul class="scanners">
-                <li ng-repeat="scanner in location.scanners"><a href="/scanners/{{ location.number }}?scanner={{ scanner.number }} ">Scanner {{ scanner.number }}</a></li>
+    <div class=panel-group ng-if="gameRunning">
+        <div class="locations panel panel-default" ng-repeat="location in game.locations">
+            <div class="panel-heading">{{location.name}} (Location {{ location.number }})</div>
+            <ul class="scanners list-group">
+                <li ng-repeat="scanner in location.scanners" ng-click="goTo(location.number, scanner.number)" class="list-group-item">Scanner {{ scanner.number }} <i class="fa fa-external-link" aria-hidden="true"></i></li>
             </ul>
         </div>
     </div>

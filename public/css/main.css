@@ -108,3 +108,12 @@
 .edit-page .deactivate-button {
     margin-left: 1rem;
 }
+
+.scanners-page .panel {
+    margin-top: 2rem !important;
+}
+
+.scanners-page li:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
