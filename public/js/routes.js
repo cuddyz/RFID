@@ -9,10 +9,10 @@ rfidApp.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', fun
         controller: "homeController"
     };
 
-    var scannerState = {
-        name: 'scanner',
-        url: '/scanner',
-        templateUrl: "/assets/views/scanner.html"
+    var scannersState = {
+        name: 'scanners',
+        url: '/scanners',
+        templateUrl: "/assets/views/scanners.html"
     };
 
     var resultState = {
@@ -40,10 +40,10 @@ rfidApp.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', fun
         url: '/edit',
         templateUrl: "/assets/views/edit.html",
         controller: "editController"
-    };
+    }
 
     $stateProvider.state(homeState);
-    $stateProvider.state(scannerState);
+    $stateProvider.state(scannersState);
     $stateProvider.state(resultState);
     $stateProvider.state(adminState);
     $stateProvider.state(createState);
