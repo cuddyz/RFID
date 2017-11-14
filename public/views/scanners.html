@@ -1,6 +1,11 @@
 <div class="scanners-page">
     <div ng-if="gameRunning">
-        <h1>Game Running</h1>
+        <div class="locations" ng-repeat="location in game.locations">
+            <h3>{{location.name}} (Location {{ location.number }})</h3>
+            <ul class="scanners">
+                <li ng-repeat="scanner in location.scanners"><a href="/scanners/{{ location.number }}?scanner={{ scanner.number }} ">Scanner {{ scanner.number }}</a></li>
+            </ul>
+        </div>
     </div>
     <div class="jumbotron no-live-game" ng-if="!gameRunning">
         <p>Currently there isn't a game being played, please click the button below to start one!</p>
