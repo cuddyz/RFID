@@ -29,6 +29,10 @@ rfidApp.controller('scanController', ['$scope', '$stateParams', '$location', '$h
     };
 
     $scope.submitScan = function() {
+        if (!$scope.scannerInput || $scope.scannerInput === "") {
+            return;
+        }
+
         var scan = {
             gameId: $scope.game._id,
             scanId: $scope.scannerInput,
