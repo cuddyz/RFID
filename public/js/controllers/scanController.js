@@ -1,4 +1,4 @@
-rfidApp.controller('scanController', ['$scope', '$stateParams', '$location', 'CurrentGame', 'Focus', function($scope, $stateParams, $location, CurrentGame, Focus) {
+rfidApp.controller('scanController', ['$scope', '$stateParams', '$location', '$http', 'CurrentGame', 'Focus', function($scope, $stateParams, $location, $http, CurrentGame, Focus) {
 
     CurrentGame.get().$promise.then(function success(data) {
         console.log(data);
@@ -27,9 +27,22 @@ rfidApp.controller('scanController', ['$scope', '$stateParams', '$location', 'Cu
     };
 
     $scope.submitScan = function() {
-        alert($scope.scannerInput);
-        $scope.scannerInput = "";
+        var scan = {
+            gameId: $scope.game._id,
+            scanId: $scope.scannerInput,
+            location: $scope.locNum,
+            scanner: $scope.scannerNum
+        };
 
-        //Insert HTTP POST to DB
+        $http({
+            method: "POST",
+            url: "/api/scan",
+            data: scan
+        }).then(function success(res) {
+            console.log(res);
+            $scope.scannerInput = "";
+        }, function error(res) {
+            console.log("ERROR " + res);
+        });
     };
 }]);

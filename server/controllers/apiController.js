@@ -1,5 +1,6 @@
 var bodyParser = require('body-parser');
 var Games = require('../models/gameModel');
+var Scans = require('../models/scanModel');
 
 module.exports = function(app) {
 

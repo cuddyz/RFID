@@ -3,7 +3,7 @@
         <h1>Scan your RFID card</h1>
         <form ng-submit="submitScan()">
             <div class="input-group">
-                <input id="scannerInput" ng-model="scannerInput" ng-blur="focusInput()" type="text" class="form-control" placeholder="Scan ID">
+                <input id="scannerInput" ng-model="scannerInput" ng-blur="focusInput()" type="text" class="form-control" placeholder="Scan ID" autocomplete="off">
                 <span class="input-group-addon"><i class="fa fa-check"></i></span>
             </div>
         </form>
