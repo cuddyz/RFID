@@ -1,4 +1,4 @@
-rfidApp.controller('scanController', ['$scope', '$stateParams', '$location', '$http', 'CurrentGame', 'Focus', function($scope, $stateParams, $location, $http, CurrentGame, Focus) {
+rfidApp.controller('scanController', ['$scope', '$stateParams', '$location', '$http', '$timeout', 'CurrentGame', 'Focus', function($scope, $stateParams, $location, $http, $timeout, CurrentGame, Focus) {
 
     CurrentGame.get().$promise.then(function success(data) {
         console.log(data);
@@ -19,6 +19,8 @@ rfidApp.controller('scanController', ['$scope', '$stateParams', '$location', '$h
         if ($scope.validScanner) {
             $scope.focusInput();
             $scope.scannerInput = "";
+            $scope.scannerText = $scope.game.locations[$scope.locNum - 1].scanners[$scope.scannerNum - 1].text
+            $scope.scanSuccess = false;
         }
     };
 
@@ -41,6 +43,10 @@ rfidApp.controller('scanController', ['$scope', '$stateParams', '$location', '$h
         }).then(function success(res) {
             console.log(res);
             $scope.scannerInput = "";
+            $scope.scanSuccess = true;
+            $timeout(function() {
+                $scope.scanSuccess = false;
+            }, 500);
         }, function error(res) {
             console.log("ERROR " + res);
         });

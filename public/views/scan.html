@@ -7,6 +7,9 @@
                 <span class="input-group-addon"><i class="fa fa-check"></i></span>
             </div>
         </form>
+        <div class="scan-success animate" ng-show="scanSuccess">
+            <h1>{{ scannerText }}</h1>
+        </div>
     </div>
     <div class="jumbotron invalid-scanner" ng-if="!validScanner">
         <p>The selected scanner <span class="bold">(Location {{ locNum }}, Scanner {{ scannerNum }})</span> is invalid. Click the button below to view the list of available scanners.</p>
