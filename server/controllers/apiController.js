@@ -6,6 +6,7 @@ module.exports = function(app) {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: true}));
 
+    //GAME ENDPOINTS
     app.get('/api/active-game', function(req, res) {
         Games.findOne({ "active": true}, function(err, data) {
            if (err) res.send("Error fetching active game");
@@ -45,4 +46,20 @@ module.exports = function(app) {
 
         res.send('Success');
     });
+
+
+    //SCANNER ENDPOINTS
+    app.post('/api/scan', function(req, res) {
+        var newScan = Scans({
+            gameId: req.body.gameId,
+            scanId: req.body.scanId,
+            location: req.body.location,
+            scanner: req.body.scanner
+        });
+        newScan.save(function(err) {
+            if (err) res.send("Error submitting scan");
+
+            res.send('Success');
+        })
+    })
 };
