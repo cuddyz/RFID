@@ -118,3 +118,11 @@
     background-color: #f5f5f5;
     cursor: pointer;
 }
+
+.scan-page .valid-scanner {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    margin-top: 10rem;
+}

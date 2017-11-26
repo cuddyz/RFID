@@ -1,6 +1,10 @@
 <div class="scan-page">
-    <div ng-if="validScanner">
-        <h1>Valid Scanner</h1>
+    <div class="valid-scanner" ng-if="validScanner">
+        <h1>Scan your RFID card</h1>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Scan ID">
+            <span class="input-group-addon"><i class="fa fa-check"></i></span>
+        </div>
     </div>
     <div class="jumbotron invalid-scanner" ng-if="!validScanner">
         <p>The selected scanner <span class="bold">(Location {{ locNum }}, Scanner {{ scannerNum }})</span> is invalid. Click the button below to view the list of available scanners.</p>
