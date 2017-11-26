@@ -2,7 +2,8 @@
     <div ng-if="validScanner">
         <h1>Valid Scanner</h1>
     </div>
-    <div ng-if="!validScanner">
-        <h1>Invalid Scanner</h1>
+    <div class="jumbotron invalid-scanner" ng-if="!validScanner">
+        <p>The selected scanner <span class="bold">(Location {{ locNum }}, Scanner {{ scannerNum }})</span> is invalid. Click the button below to view the list of available scanners.</p>
+        <p><a class="btn btn-primary" ui-sref="scanners" ui-sref-active="scanners" role="button">Scanners</a></p>
     </div>
 </div>
