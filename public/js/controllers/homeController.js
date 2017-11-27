@@ -10,5 +10,6 @@ rfidApp.controller('homeController', ['$scope', 'CurrentGame', function($scope, 
         }
     }, function error(res) {
         console.log("ERROR " + res);
+        $scope.error = true;
     });
 }]);
