@@ -8,5 +8,9 @@
             <li ng-class="{'active': type == 'game'}"><a ui-sref="result({type: 'game'})">Game</a></li>
             <li ng-class="{'active': type == 'user'}"><a ui-sref="result({type: 'user'})">User</a></li>
         </ul>
+        <div class="game-results">
+            <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series">
+            </canvas>
+        </div>
     </div>
 </div>

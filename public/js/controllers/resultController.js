@@ -1,4 +1,4 @@
-rfidApp.controller('resultController', ['$scope', '$stateParams', 'CurrentGame', function($scope, $stateParams, CurrentGame) {
+rfidApp.controller('resultController', ['$scope', '$stateParams', '$http', 'CurrentGame', function($scope, $stateParams, $http, CurrentGame) {
     $scope.gameRunning = false;
 
     CurrentGame.get().$promise.then(function success(data) {
@@ -7,8 +7,70 @@ rfidApp.controller('resultController', ['$scope', '$stateParams', 'CurrentGame',
             $scope.game = data;
             $scope.gameRunning = true;
             $scope.type = $stateParams.type;
+            setupChart();
         }
     }, function error(res) {
         console.log("ERROR " + res);
     });
+
+    var setupChart = function() {
+        $scope.labels = [];
+        buildLabels();
+
+        $scope.series = [];
+        buildSeries();
+
+        $scope.data = [];
+        getData();
+    };
+
+    var buildLabels = function() {
+        for (var i = 0; i < $scope.game.locations.length; i++) {
+            $scope.labels.push($scope.game.locations[i].name);
+        }
+    };
+
+    var buildSeries = function() {
+        var maxScanners = 0;
+        for (var i = 0; i < $scope.game.locations.length; i++) {
+            if ($scope.game.locations[i].numScanners > maxScanners) {
+                maxScanners = $scope.game.locations[i].numScanners;
+            }
+        }
+
+        for (var j = 0; j < maxScanners; j++) {
+            $scope.series.push("Scanner " + (j + 1));
+        }
+    };
+
+    var getData = function() {
+        $http({
+            method: "GET",
+            url: "/api/results/game",
+            params: {gameId: $scope.game._id}
+        }).then(function success(res) {
+            console.log(res);
+            $scope.scans = res.data;
+            buildData();
+        }, function error(res) {
+            console.log("ERROR " + res);
+        });
+    };
+
+    var buildData = function() {
+        var data = [];
+        for (var i = 0; i < $scope.series.length; i++) {
+            var dataset = [];
+            for (var j = 0; j < $scope.labels.length; j++) {
+                dataset.push(0);
+            }
+            data.push(dataset);
+        }
+
+        for (var k = 0; k < $scope.scans.length; k++) {
+            data[$scope.scans[k].scanner - 1][$scope.scans[k].location - 1]++;
+        }
+
+        $scope.data = data;
+    }
 }]);

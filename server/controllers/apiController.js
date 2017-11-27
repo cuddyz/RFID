@@ -102,7 +102,7 @@ module.exports = function(app) {
 
     //RESULT ENDPOINTS
     app.get('/api/results/game', function(req, res) {
-        Scans.find({ "gameId": req.body.gameId}, function(err, data) {
+        Scans.find({ "gameId": req.query.gameId}, function(err, data) {
             if (err) res.send("Error fetching active game's results");
 
             res.send(data);
