@@ -3,6 +3,7 @@
 .admin-page .no-live-game,
 .edit-page .no-live-game,
 .scanners-page .no-live-game,
+.user-page .no-live-game,
 .scan-page .invalid-scanner {
     width: 100%;
     text-align: center;

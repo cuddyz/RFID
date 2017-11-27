@@ -50,6 +50,13 @@ rfidApp.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', fun
         controller: "editController"
     };
 
+    var userState = {
+        name: 'user',
+        url: '/user',
+        templateUrl: "/assets/views/user.html",
+        controller: "userController"
+    };
+
     $stateProvider.state(homeState);
     $stateProvider.state(scannersState);
     $stateProvider.state(scanState);
@@ -57,6 +64,7 @@ rfidApp.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', fun
     $stateProvider.state(adminState);
     $stateProvider.state(createState);
     $stateProvider.state(editState);
+    $stateProvider.state(userState);
 
     $urlRouterProvider.otherwise('/');
 
