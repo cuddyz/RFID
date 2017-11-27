@@ -103,7 +103,15 @@ module.exports = function(app) {
     //RESULT ENDPOINTS
     app.get('/api/results/game', function(req, res) {
         Scans.find({ "gameId": req.query.gameId}, function(err, data) {
-            if (err) res.send("Error fetching active game's results");
+            if (err) res.send("Error fetching game's results");
+
+            res.send(data);
+        });
+    });
+
+    app.get('/api/results/user', function(req, res) {
+        Scans.find({ "gameId": req.query.gameId, "scanId": req.query.scanId}, function(err, data) {
+            if (err) res.send("Error fetching user's results");
 
             res.send(data);
         });
