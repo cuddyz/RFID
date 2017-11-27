@@ -11,6 +11,7 @@ rfidApp.controller('scannersController', ['$scope', 'CurrentGame', '$location', 
         }
     }, function error(res) {
         console.log("ERROR " + res);
+        $scope.error = true;
     });
 
     $scope.goTo = function(locNum, scanNum) {

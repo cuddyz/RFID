@@ -15,6 +15,7 @@ rfidApp.controller('userController', ['$scope', '$http', '$timeout', 'CurrentGam
         }
     }, function error(res) {
         console.log("ERROR " + res);
+        $scope.error = true;
     });
 
     $scope.createUser = function() {
@@ -49,6 +50,7 @@ rfidApp.controller('userController', ['$scope', '$http', '$timeout', 'CurrentGam
                 }, 500);
             } else {
                 console.log("ERROR " + res);
+                $scope.error = true;
             }
         });
     }

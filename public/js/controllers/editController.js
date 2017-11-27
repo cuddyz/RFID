@@ -18,6 +18,7 @@ rfidApp.controller('editController', ['$scope', 'CurrentGame', '$http', '$state'
         }
     }, function error(res) {
         console.log("ERROR " + res);
+        $scope.error = true;
     });
 
     var init = function() {
@@ -116,6 +117,7 @@ rfidApp.controller('editController', ['$scope', 'CurrentGame', '$http', '$state'
             $state.transitionTo('admin');
         }, function error(res) {
             console.log("ERROR " + res);
+            $scope.error = true;
         });
     };
 
@@ -132,6 +134,7 @@ rfidApp.controller('editController', ['$scope', 'CurrentGame', '$http', '$state'
                 $state.transitionTo('home');
             }, function error(res) {
                 console.log("ERROR " + res);
+                $scope.error = true;
             });
         }
     };

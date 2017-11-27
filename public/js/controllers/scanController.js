@@ -8,6 +8,7 @@ rfidApp.controller('scanController', ['$scope', '$stateParams', '$location', '$h
         initScanner();
     }, function error(res) {
         console.log("ERROR " + res);
+        $scope.error = true;
     });
 
     var initScanner = function() {
@@ -64,6 +65,7 @@ rfidApp.controller('scanController', ['$scope', '$stateParams', '$location', '$h
                 }, 500);
             } else {
                 console.log("ERROR " + res);
+                $scope.error = true;
             }
         });
     };

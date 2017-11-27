@@ -23,6 +23,7 @@ rfidApp.controller('resultController', ['$scope', '$state', '$stateParams', '$ht
         }
     }, function error(res) {
         console.log("ERROR " + res);
+        $scope.error = true;
     });
 
     $scope.focusInput = function() {
@@ -45,6 +46,7 @@ rfidApp.controller('resultController', ['$scope', '$state', '$stateParams', '$ht
             buildUserResults();
         }, function error(res) {
             console.log("ERROR " + res);
+            $scope.error = true;
         });
     };
 
@@ -117,6 +119,7 @@ rfidApp.controller('resultController', ['$scope', '$state', '$stateParams', '$ht
             buildData();
         }, function error(res) {
             console.log("ERROR " + res);
+            $scope.error = true;
         });
     };
 

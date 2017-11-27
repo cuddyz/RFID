@@ -10,6 +10,7 @@ rfidApp.controller('createController', ['$scope', '$http', '$state', 'CurrentGam
         }
     }, function error(res) {
         console.log("ERROR " + res);
+        $scope.error = true;
     });
 
     $scope.gameName = "";
@@ -124,6 +125,7 @@ rfidApp.controller('createController', ['$scope', '$http', '$state', 'CurrentGam
             $state.transitionTo('admin');
         }, function error(res) {
             console.log("ERROR " + res);
+            $scope.error = true;
         });
 
     };

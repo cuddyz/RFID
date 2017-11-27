@@ -11,6 +11,7 @@ rfidApp.controller('adminController', ['$scope', 'CurrentGame', '$http', '$state
         }
     }, function error(res) {
         console.log("ERROR " + res);
+        $scope.error = true;
     });
 
     $scope.deactivateGame = function() {
@@ -26,6 +27,7 @@ rfidApp.controller('adminController', ['$scope', 'CurrentGame', '$http', '$state
                 $state.transitionTo('home');
             }, function error(res) {
                 console.log("ERROR " + res);
+                $scope.error = true;
             });
         }
     };
