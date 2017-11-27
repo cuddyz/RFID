@@ -1,4 +1,4 @@
-rfidApp.controller('userController', ['$scope', '$http', 'CurrentGame', function($scope, $http, CurrentGame) {
+rfidApp.controller('userController', ['$scope', '$http', '$timeout', 'CurrentGame', function($scope, $http, $timeout, CurrentGame) {
     $scope.gameRunning = false;
 
     CurrentGame.get().$promise.then(function success(data) {
@@ -8,7 +8,7 @@ rfidApp.controller('userController', ['$scope', '$http', 'CurrentGame', function
             $scope.gameRunning = true;
             $scope.alias = "";
             $scope.scanId = "";
-            $scope.scanSuccess = false;
+            $scope.userCreated = false;
             $scope.duplicateUser = false;
         }
     }, function error(res) {
@@ -33,22 +33,18 @@ rfidApp.controller('userController', ['$scope', '$http', 'CurrentGame', function
             console.log(res);
             $scope.alias = "";
             $scope.scanId = "";
-            /*
-            $scope.scanSuccess = true;
+            $scope.userCreated = true;
             $timeout(function() {
-                $scope.scanSuccess = false;
+                $scope.userCreated = false;
             }, 500);
-            */
         }, function error(res) {
             if (res.status === 400) {
                 $scope.alias = "";
                 $scope.scanId = "";
-                /*
                 $scope.duplicateUser = true;
                 $timeout(function() {
                     $scope.duplicateUser = false;
                 }, 500);
-                */
             } else {
                 console.log("ERROR " + res);
             }

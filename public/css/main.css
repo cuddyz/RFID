@@ -131,7 +131,9 @@
 }
 
 .scan-page .scan-success,
-.scan-page .duplicate-scan {
+.scan-page .duplicate-scan,
+.user-page .user-created,
+.user-page .duplicate-user {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -143,16 +145,20 @@
     opacity: 1;
 }
 
-.scan-page .scan-success {
+.scan-page .scan-success,
+.user-page .user-created {
     background-color: #5cb85c;
 }
 
-.scan-page .duplicate-scan {
+.scan-page .duplicate-scan,
+.user-page .duplicate-user {
     background-color: #d9534f;
 }
 
 .scan-page .scan-success h1,
-.scan-page .duplicate-scan h1 {
+.scan-page .duplicate-scan h1,
+.user-page .user-created h1,
+.user-page .duplicate-user h1 {
     font-size: 9em;
     padding-top: 25vh;
 }
