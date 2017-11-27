@@ -40,9 +40,31 @@ rfidApp.controller('resultController', ['$scope', '$state', '$stateParams', '$ht
             console.log(res);
             $scope.scans = res.data;
             $scope.scannerInput = "";
+            buildUserResults();
         }, function error(res) {
             console.log("ERROR " + res);
         });
+    };
+
+    var buildUserResults = function() {
+        $scope.locations = $scope.game.locations;
+        checkLocations();
+    };
+
+    var checkLocations = function() {
+        for (var i = 0; i < $scope.locations.length; i++) {
+            $scope.locations[i].visited = false;
+            $scope.locations[i].scannerText = "";
+            $scope.locations[i].scannerNum = "";
+            for (var j = 0; j < $scope.scans.length; j++) {
+                if ($scope.locations[i].number === $scope.scans[j].location) {
+                    $scope.locations[i].visited = true;
+                    $scope.locations[i].scannerText = $scope.locations[i].scanners[$scope.scans[j].scanner - 1].text;
+                    $scope.locations[i].scannerNum = $scope.scans[j].scanner;
+                    break;
+                }
+            }
+        }
     };
 
     var setupChart = function() {

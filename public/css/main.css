@@ -213,3 +213,24 @@
     text-align: center;
     margin-top: 5rem;
 }
+
+.result-page .user-results {
+    text-align: left;
+    margin-top: 5rem;
+}
+
+.result-page .user-results p {
+    font-size: 1.5em;
+}
+
+.result-page .user-results .fa-check {
+    color: #5cb85c;
+}
+
+.result-page .user-results .fa-times {
+    color: #d9534f;
+}
+
+.result-page .user-results .scanner-info {
+    margin-left: 5rem;
+}

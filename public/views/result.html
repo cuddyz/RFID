@@ -19,6 +19,13 @@
                     <span class="input-group-addon"><i class="fa fa-check"></i></span>
                 </div>
             </form>
+            <div ng-show="locations" class="user-results">
+                <p ng-repeat="location in locations">
+                    {{ location.name }}
+                    <i class="fa" ng-class="{'fa-check': location.visited, 'fa-times': !location.visited}"></i>
+                    <span class="scanner-info" ng-if="location.visited">{{ location.scannerText }} (Scanner {{ location.scannerNum }})</span>
+                </p>
+            </div>
         </div>
     </div>
 </div>
