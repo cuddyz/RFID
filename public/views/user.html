@@ -3,7 +3,7 @@
         <p>Currently there isn't a game being played, please click the button below to start one!</p>
         <p><a class="btn btn-primary" ui-sref="create" ui-sref-active="active" role="button">Create Game</a></p>
     </div>
-    <div ng-if="gameRunning" class="user-form">
+    <div ng-show="gameRunning" class="user-form">
         <div class="instructions">
             <h3>Instructions</h3>
             <ol>
@@ -16,13 +16,13 @@
         <div class="user-info-group">
             <div class="alias-group">
                 <label>Alias</label>
-                <input type="text" class="form-control" placeholder="Enter an Alias">
+                <input ng-model="alias" type="text" class="form-control" placeholder="Enter an Alias">
             </div>
             <div class="scanner-group">
                 <label>Scanner ID</label>
-                <input type="text" class="form-control" placeholder="Scan your RFID Card">
+                <input ng-model="scannerId" type="text" class="form-control" placeholder="Scan your RFID Card">
             </div>
-            <button type="button" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn btn-primary" ng-click="createUser()">Submit</button>
         </div>
     </div>
 </div>
