@@ -1,11 +1,13 @@
 var bodyParser = require('body-parser');
 var Games = require('../models/gameModel');
 var Scans = require('../models/scanModel');
+var Users = require('../models/userModel');
 
 module.exports = function(app) {
 
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: true}));
+
 
     //GAME ENDPOINTS
     app.get('/api/active-game', function(req, res) {
@@ -71,5 +73,20 @@ module.exports = function(app) {
                 })
             }
         });
-    })
+    });
+
+
+    //USER ENDPOINTS
+    app.post('/api/user', function(req, res) {
+        var newUser = Users({
+            alias: req.body.alias,
+            scanId: req.body.scanId,
+            gameId: req.body.gameId
+        });
+        newUser.save(function(err) {
+            if (err) res.send("Error creating user");
+
+            res.send('Success');
+        })
+    });
 };

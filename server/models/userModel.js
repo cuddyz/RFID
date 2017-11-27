@@ -4,7 +4,8 @@ var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
     alias: String,
-    scannerId: String
+    scanId: String,
+    gameId: String
 });
 
 var Users = mongoose.model('Users', userSchema);
