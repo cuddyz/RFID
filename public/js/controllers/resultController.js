@@ -1,4 +1,9 @@
-rfidApp.controller('resultController', ['$scope', '$stateParams', '$http', 'CurrentGame', function($scope, $stateParams, $http, CurrentGame) {
+rfidApp.controller('resultController', ['$scope', '$state', '$stateParams', '$http', 'CurrentGame', function($scope, $state, $stateParams, $http, CurrentGame) {
+    $scope.type = $stateParams.type;
+    if ($scope.type !== 'game' && $scope.type !== 'user') {
+        $state.transitionTo('result', {type:"game"});
+    }
+
     $scope.gameRunning = false;
 
     CurrentGame.get().$promise.then(function success(data) {
@@ -6,8 +11,12 @@ rfidApp.controller('resultController', ['$scope', '$stateParams', '$http', 'Curr
         if (data.active) {
             $scope.game = data;
             $scope.gameRunning = true;
-            $scope.type = $stateParams.type;
-            setupChart();
+
+            if ($scope.type === 'game') {
+                setupChart();
+            } else {
+                
+            }
         }
     }, function error(res) {
         console.log("ERROR " + res);
