@@ -1,5 +1,6 @@
 rfidApp.controller('editController', ['$scope', 'CurrentGame', '$http', '$state', function($scope, CurrentGame, $http, $state) {
     $scope.gameRunning = false;
+    $scope.loading = true;
 
     $scope.gameTypes = [
         "Standard",
@@ -8,8 +9,9 @@ rfidApp.controller('editController', ['$scope', 'CurrentGame', '$http', '$state'
     ];
 
     CurrentGame.get().$promise.then(function success(data) {
-        $scope.game = data;
         console.log(data);
+        $scope.game = data;
+        $scope.loading = false;
         if (data.active) {
             $scope.gameRunning = true;
             init();
