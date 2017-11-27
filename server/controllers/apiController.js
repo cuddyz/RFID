@@ -53,7 +53,6 @@ module.exports = function(app) {
     app.post('/api/scan', function(req, res) {
         Scans.findOne({ "location": req.body.location}, function(err, data) {
             if (err) res.send("Error checking existing scans");
-            console.log(data);
             if (data && data !== null) {
                 res.statusCode = 400;
                 res.send("Already scanned at this location");

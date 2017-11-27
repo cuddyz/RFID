@@ -55,6 +55,7 @@ rfidApp.controller('scanController', ['$scope', '$stateParams', '$location', '$h
             }, 500);
         }, function error(res) {
             if (res.status === 400) {
+                $scope.scannerInput = "";
                 $scope.duplicateScan = true;
                 $timeout(function() {
                     $scope.duplicateScan = false;
