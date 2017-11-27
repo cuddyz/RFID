@@ -1,4 +1,5 @@
-<div class="admin-page">
+<loader ng-show="loading"></loader>
+<div ng-show="!loading" class="admin-page">
     <div class="jumbotron no-live-game" ng-if="!gameRunning">
         <p>Currently there isn't a game being played, please click the button below to start one!</p>
         <p><a class="btn btn-primary" ui-sref="create" ui-sref-active="active" role="button">Create Game</a></p>

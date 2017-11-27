@@ -1,9 +1,11 @@
 rfidApp.controller('adminController', ['$scope', 'CurrentGame', '$http', '$state', function($scope, CurrentGame, $http, $state) {
     $scope.gameRunning = false;
+    $scope.loading = true;
 
     CurrentGame.get().$promise.then(function success(data) {
         console.log(data);
         $scope.game = data;
+        $scope.loading = false;
         if (data.active) {
             $scope.gameRunning = true;
         }
