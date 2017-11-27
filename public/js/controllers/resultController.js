@@ -1,4 +1,4 @@
-rfidApp.controller('resultController', ['$scope', '$state', '$stateParams', '$http', 'CurrentGame', function($scope, $state, $stateParams, $http, CurrentGame) {
+rfidApp.controller('resultController', ['$scope', '$state', '$stateParams', '$http', 'CurrentGame', 'Focus', function($scope, $state, $stateParams, $http, CurrentGame, Focus) {
     $scope.type = $stateParams.type;
     if ($scope.type !== 'game' && $scope.type !== 'user') {
         $state.transitionTo('result', {type:"game"});
@@ -15,12 +15,35 @@ rfidApp.controller('resultController', ['$scope', '$state', '$stateParams', '$ht
             if ($scope.type === 'game') {
                 setupChart();
             } else {
-                
+                $scope.focusInput();
+                $scope.scannerInput = "";
             }
         }
     }, function error(res) {
         console.log("ERROR " + res);
     });
+
+    $scope.focusInput = function() {
+        Focus('scannerInput');
+    };
+
+    $scope.getUserResults = function() {
+        if (!$scope.scannerInput || $scope.scannerInput === "") {
+            return;
+        }
+
+        $http({
+            method: "GET",
+            url: "/api/results/user",
+            params: {gameId: $scope.game._id, scanId: $scope.scannerInput}
+        }).then(function success(res) {
+            console.log(res);
+            $scope.scans = res.data;
+            $scope.scannerInput = "";
+        }, function error(res) {
+            console.log("ERROR " + res);
+        });
+    };
 
     var setupChart = function() {
         $scope.labels = [];

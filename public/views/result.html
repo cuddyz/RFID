@@ -3,7 +3,7 @@
         <p>Currently there isn't a game being played, please click the button below to start one!</p>
         <p><a class="btn btn-primary" ui-sref="create" ui-sref-active="active" role="button">Create Game</a></p>
     </div>
-    <div class="live-game" ng-if="gameRunning">
+    <div class="live-game" ng-show="gameRunning">
         <ul class="nav nav-tabs">
             <li ng-class="{'active': type == 'game'}"><a ui-sref="result({type: 'game'})">Game</a></li>
             <li ng-class="{'active': type == 'user'}"><a ui-sref="result({type: 'user'})">User</a></li>
@@ -11,8 +11,14 @@
         <div ng-if="type == 'game'" class="game-results">
             <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options"></canvas>
         </div>
-        <div ng-if="type == 'user'" class="user-game-results">
-            <h1>User</h1>
+        <div ng-show="type == 'user'" class="user-game-results">
+            <h3>Scan your RFID card</h3>
+            <form ng-submit="getUserResults()">
+                <div class="input-group">
+                    <input id="scannerInput" ng-model="scannerInput" ng-blur="focusInput()" type="text" class="form-control" placeholder="Scan ID" autocomplete="off">
+                    <span class="input-group-addon"><i class="fa fa-check"></i></span>
+                </div>
+            </form>
         </div>
     </div>
 </div>
