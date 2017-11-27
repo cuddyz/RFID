@@ -189,3 +189,11 @@
 .user-page button {
     margin-top: 2rem;
 }
+
+.result-page .nav {
+    text-align: center;
+}
+
+.result-page .nav li {
+    width: 50%;
+}

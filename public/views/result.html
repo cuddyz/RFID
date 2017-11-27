@@ -4,6 +4,9 @@
         <p><a class="btn btn-primary" ui-sref="create" ui-sref-active="active" role="button">Create Game</a></p>
     </div>
     <div class="live-game" ng-if="gameRunning">
-        <h1>Result!</h1>
+        <ul class="nav nav-tabs">
+            <li ng-class="{'active': type == 'game'}"><a ui-sref="result({type: 'game'})">Game</a></li>
+            <li ng-class="{'active': type == 'user'}"><a ui-sref="result({type: 'user'})">User</a></li>
+        </ul>
     </div>
 </div>
