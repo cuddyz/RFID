@@ -14,12 +14,14 @@
 }
 
 .create-page,
-.edit-page {
+.edit-page,
+.user-page {
     display: flex;
 }
 
 .create-page .create-form,
-.edit-page .edit-form {
+.edit-page .edit-form,
+.user-page .user-form {
     margin-left: auto;
     margin-right: auto;
     width: 50vw;
@@ -163,4 +165,20 @@
 
 .animate.ng-hide {
     opacity: 0;
+}
+
+.user-page .instructions {
+    padding-bottom: 1rem;
+    background-color: #eee;
+}
+
+.user-page .instructions h3 {
+    padding-top: 1rem;
+    padding-left: 1rem;
+}
+
+.user-page .alias-group,
+.user-page .scanner-group,
+.user-page button {
+    margin-top: 2rem;
 }
