@@ -78,15 +78,24 @@ module.exports = function(app) {
 
     //USER ENDPOINTS
     app.post('/api/user', function(req, res) {
-        var newUser = Users({
-            alias: req.body.alias,
-            scanId: req.body.scanId,
-            gameId: req.body.gameId
-        });
-        newUser.save(function(err) {
-            if (err) res.send("Error creating user");
+        Users.findOne({ "scanId": req.body.scanId, "gameId": req.body.gameId}, function(err, data) {
+            if (err) res.send("Error checking existing scans");
+            if (data && data !== null) {
+                res.statusCode = 400;
+                res.send("User already exists on this RFID Card");
+            } else {
 
-            res.send('Success');
-        })
+                var newUser = Users({
+                    alias: req.body.alias,
+                    scanId: req.body.scanId,
+                    gameId: req.body.gameId
+                });
+                newUser.save(function (err) {
+                    if (err) res.send("Error creating user");
+
+                    res.send('Success');
+                })
+            }
+        });
     });
 };
