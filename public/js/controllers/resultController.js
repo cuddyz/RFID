@@ -22,6 +22,13 @@ rfidApp.controller('resultController', ['$scope', '$stateParams', '$http', 'Curr
 
         $scope.data = [];
         getData();
+
+        $scope.options = {
+            title: {
+                display: true,
+                text: $scope.game.name + " Results"
+            }
+        }
     };
 
     var buildLabels = function() {
