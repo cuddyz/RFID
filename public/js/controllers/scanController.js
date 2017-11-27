@@ -18,9 +18,11 @@ rfidApp.controller('scanController', ['$scope', '$stateParams', '$location', '$h
         $scope.validScanner = ($scope.game.locations[$scope.locNum - 1] && $scope.game.locations[$scope.locNum - 1].scanners[$scope.scannerNum - 1]);
         if ($scope.validScanner) {
             $scope.focusInput();
+
             $scope.scannerInput = "";
-            $scope.scannerText = $scope.game.locations[$scope.locNum - 1].scanners[$scope.scannerNum - 1].text
+            $scope.scannerText = $scope.game.locations[$scope.locNum - 1].scanners[$scope.scannerNum - 1].text;
             $scope.scanSuccess = false;
+            $scope.duplicateScan =false;
         }
     };
 
@@ -52,7 +54,14 @@ rfidApp.controller('scanController', ['$scope', '$stateParams', '$location', '$h
                 $scope.scanSuccess = false;
             }, 500);
         }, function error(res) {
-            console.log("ERROR " + res);
+            if (res.status === 400) {
+                $scope.duplicateScan = true;
+                $timeout(function() {
+                    $scope.duplicateScan = false;
+                }, 500);
+            } else {
+                console.log("ERROR " + res);
+            }
         });
     };
 }]);

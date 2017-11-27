@@ -51,16 +51,26 @@ module.exports = function(app) {
 
     //SCANNER ENDPOINTS
     app.post('/api/scan', function(req, res) {
-        var newScan = Scans({
-            gameId: req.body.gameId,
-            scanId: req.body.scanId,
-            location: req.body.location,
-            scanner: req.body.scanner
-        });
-        newScan.save(function(err) {
-            if (err) res.send("Error submitting scan");
+        Scans.findOne({ "location": req.body.location}, function(err, data) {
+            if (err) res.send("Error checking existing scans");
+            console.log(data);
+            if (data && data !== null) {
+                res.statusCode = 400;
+                res.send("Already scanned at this location");
+            } else {
 
-            res.send('Success');
-        })
+                var newScan = Scans({
+                    gameId: req.body.gameId,
+                    scanId: req.body.scanId,
+                    location: req.body.location,
+                    scanner: req.body.scanner
+                });
+                newScan.save(function (err) {
+                    if (err) res.send("Error submitting scan");
+
+                    res.send('Success');
+                })
+            }
+        });
     })
 };
