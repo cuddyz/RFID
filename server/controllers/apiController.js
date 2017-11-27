@@ -53,7 +53,7 @@ module.exports = function(app) {
 
     //SCANNER ENDPOINTS
     app.post('/api/scan', function(req, res) {
-        Scans.findOne({ "location": req.body.location}, function(err, data) {
+        Scans.findOne({ "location": req.body.location, "gameId": req.body.gameId}, function(err, data) {
             if (err) res.send("Error checking existing scans");
             if (data && data !== null) {
                 res.statusCode = 400;
