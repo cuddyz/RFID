@@ -67,7 +67,7 @@ rfidApp.controller('editController', ['$scope', 'CurrentGame', '$http', '$state'
                 var scannerTemplate = {
                     number: counter,
                     text: "",
-                    type: $scope.gameTypes[0]
+                    type: $scope.selectedScanner.type
                 };
 
                 $scope.selectedLoc.scanners.push(scannerTemplate);
