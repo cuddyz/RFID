@@ -91,8 +91,10 @@ rfidApp.controller('editController', ['$scope', 'CurrentGame', '$http', '$state'
     });
 
     $scope.$watch("selectedScanner.type", function() {
-        for (var i = 0; i < $scope.selectedLoc.scanners.length; i++) {
-            $scope.selectedLoc.scanners[i].type = $scope.selectedScanner.type;
+        if ($scope.selectedLoc) {
+            for (var i = 0; i < $scope.selectedLoc.scanners.length; i++) {
+                $scope.selectedLoc.scanners[i].type = $scope.selectedScanner.type;
+            }
         }
     });
 
