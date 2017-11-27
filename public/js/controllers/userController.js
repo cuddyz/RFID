@@ -1,8 +1,10 @@
 rfidApp.controller('userController', ['$scope', '$http', '$timeout', 'CurrentGame', function($scope, $http, $timeout, CurrentGame) {
     $scope.gameRunning = false;
+    $scope.loading = true;
 
     CurrentGame.get().$promise.then(function success(data) {
         console.log(data);
+        $scope.loading = false;
         if (data.active) {
             $scope.game = data;
             $scope.gameRunning = true;
