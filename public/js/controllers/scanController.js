@@ -1,8 +1,10 @@
 rfidApp.controller('scanController', ['$scope', '$stateParams', '$location', '$http', '$timeout', 'CurrentGame', 'Focus', function($scope, $stateParams, $location, $http, $timeout, CurrentGame, Focus) {
+    $scope.loading = true;
 
     CurrentGame.get().$promise.then(function success(data) {
         console.log(data);
         $scope.game = data;
+        $scope.loading = false;
         initScanner();
     }, function error(res) {
         console.log("ERROR " + res);

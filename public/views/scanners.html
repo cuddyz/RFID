@@ -1,4 +1,5 @@
-<div class="scanners-page">
+<loader ng-show="loading"></loader>
+<div ng-show="!loading" class="scanners-page">
     <div class=panel-group ng-if="gameRunning">
         <div class="locations panel panel-default" ng-repeat="location in game.locations">
             <div class="panel-heading">{{location.name}} (Location {{ location.number }})</div>
