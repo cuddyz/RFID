@@ -28,6 +28,7 @@ rfidApp.controller('resultController', ['$scope', '$state', '$stateParams', '$ht
 
     $scope.focusInput = function() {
         Focus('scannerInput');
+        $scope.$apply();
     };
 
     $scope.getUserResults = function() {
