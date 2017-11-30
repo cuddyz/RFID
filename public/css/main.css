@@ -10,6 +10,13 @@
     text-align: center;
 }
 
+.home-page,
+.live-game,
+.no-live-game,
+.invalid-scanner {
+    height: 100%;
+}
+
 .home-page img {
     height: 175px;
 }
