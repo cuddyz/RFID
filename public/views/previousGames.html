@@ -3,5 +3,5 @@
 <div class="previous-games-page">
     <h3>Previous Games:</h3>
     <p ng-if="!games || games.length == 0">No previous games</p>
-    <a ng-repeat="game in games">{{ game.name }} (Created: {{ game.created }})</a>
+    <a ng-repeat="game in games" ui-sref="previous-result({gameId: '{{game._id}}'})">{{ game.name }} (Created: {{ game.created }})</a>
 </div>
