@@ -26,6 +26,14 @@ module.exports = function(app) {
         });
     });
 
+    app.get('/api/game', function(req, res) {
+        Games.findById(req.query.id, function(err, data) {
+            if (err) res.send("Error fetching game");
+
+            res.send(data);
+        });
+    });
+
     app.post('/api/create-game', function(req, res) {
         var newGame = Games({
             name: req.body.name,
