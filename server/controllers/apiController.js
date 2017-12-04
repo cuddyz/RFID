@@ -100,6 +100,14 @@ module.exports = function(app) {
         });
     });
 
+    app.get('/api/users', function(req, res) {
+        Users.find({ "gameId": req.query.gameId}, function(err, data) {
+            if (err) res.send("Error fetching users");
+
+            res.send(data);
+        });
+    });
+
     app.post('/api/user', function(req, res) {
         Users.findOne({ "scanId": req.body.scanId, "gameId": req.body.gameId}, function(err, data) {
             if (err) res.send("Error checking existing scans");
@@ -120,6 +128,15 @@ module.exports = function(app) {
                 })
             }
         });
+    });
+
+    app.put('/api/update-user', function(req, res) {
+        Users.findByIdAndUpdate(req.body.id,
+            {   alias: req.body.alias }, function(err) {
+                if (err) res.send("Error updating user");
+            });
+
+        res.send('Success');
     });
 
 
