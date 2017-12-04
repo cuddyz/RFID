@@ -10,6 +10,8 @@
             <h3>Users:</h3>
             <input ng-model="search.scanId" class="form-control" placeholder="Click and scan RFID Card to search..." />
         </div>
+        <p ng-if="!users || users.length == 0">There are no registered users for this game.</p>
+        <p ng-if="(users|filter:search).length == 0">There are no users registered with that RFID.</p>
         <div class="users" ng-repeat="user in users | filter:search">
             <p ng-if="!user.edit">{{ user.alias }} (ID: {{ user.scanId }}) <i ng-click="editUser(user)" class="fa fa-pencil primary"></i></p>
             <div ng-if="user.edit" class="edit-user">

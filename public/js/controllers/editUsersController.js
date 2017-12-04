@@ -8,8 +8,9 @@ rfidApp.controller('editUsersController', ['$scope', '$http', 'CurrentGame', fun
         if (data.active) {
             $scope.gameRunning = true;
             getUsers();
+        } else {
+            $scope.loading = false;
         }
-        $scope.loading = false;
     }, function error(res) {
         console.log("ERROR " + res);
         $scope.error = true;
@@ -23,6 +24,7 @@ rfidApp.controller('editUsersController', ['$scope', '$http', 'CurrentGame', fun
         }).then(function success(res) {
             console.log(res);
             $scope.users = res.data;
+            $scope.loading = false;
         }, function error(res) {
             console.log("ERROR " + res);
             $scope.error = true;
