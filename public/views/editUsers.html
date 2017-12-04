@@ -6,8 +6,11 @@
         <p><a class="btn btn-primary" ui-sref="create" ui-sref-active="active" role="button">Create Game</a></p>
     </div>
     <div class="live-game">
-        <h3>Users:</h3>
-        <div ng-repeat="user in users">
+        <div class="header">
+            <h3>Users:</h3>
+            <input ng-model="search.scanId" class="form-control" placeholder="Click and scan RFID Card to search..." />
+        </div>
+        <div class="users" ng-repeat="user in users | filter:search">
             <p ng-if="!user.edit">{{ user.alias }} (ID: {{ user.scanId }}) <i ng-click="editUser(user)" class="fa fa-pencil primary"></i></p>
             <div ng-if="user.edit" class="edit-user">
                 <input ng-model="user.newAlias" class="form-control" placeholder="Alias" value="{{ user.alias }}" />
