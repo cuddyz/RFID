@@ -345,3 +345,8 @@ loader {
     padding-left: .5rem;
     cursor: pointer
 }
+
+.edit-users-page .edit-user {
+    display: flex;
+    width: 25%;
+}

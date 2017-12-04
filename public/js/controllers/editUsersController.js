@@ -27,5 +27,18 @@ rfidApp.controller('editUsersController', ['$scope', '$http', 'CurrentGame', fun
             console.log("ERROR " + res);
             $scope.error = true;
         });
-    }
+    };
+
+    $scope.editUser = function(user) {
+        user.edit = true;
+    };
+
+    $scope.updateUser = function(user) {
+        //PUT call
+        user.edit = false;
+    };
+
+    $scope.cancelUpdate = function(user) {
+        user.edit = false;
+    };
 }]);
