@@ -79,6 +79,14 @@ module.exports = function(app) {
 
 
     //USER ENDPOINTS
+    app.get('/api/user', function(req, res) {
+        Users.findOne({"scanId": req.query.scanId}, function(err, data) {
+            if (err) res.send("Error fetching user");
+
+            res.send(data);
+        });
+    });
+
     app.post('/api/user', function(req, res) {
         Users.findOne({ "scanId": req.body.scanId, "gameId": req.body.gameId}, function(err, data) {
             if (err) res.send("Error checking existing scans");
