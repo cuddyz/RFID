@@ -5,7 +5,8 @@
 .scanners-page .no-live-game,
 .user-page .no-live-game,
 .scan-page .invalid-scanner,
-.result-page .no-live-game {
+.result-page .no-live-game,
+.previous-result-page .invalid-game {
     width: 100%;
     text-align: center;
 }
@@ -205,7 +206,8 @@
     width: 50%;
 }
 
-.result-page .game-results {
+.result-page .game-results,
+.previous-result-page .game-results{
     position: relative;
     height: 40vh;
     width: 80vw;

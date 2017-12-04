@@ -1,1 +1,11 @@
-<h1>Previous Result</h1>
+<error ng-if="error"></error>
+<loader ng-show="loading"></loader>
+<div class="previous-result-page">
+    <div class="jumbotron invalid-game" ng-if="invalidGame">
+        <p>The selected game <span class="bold">(ID: {{ gameId }})</span> is invalid. Click the button below to view the list of previous games.</p>
+        <p><a class="btn btn-primary" ui-sref="previous-games" role="button">Previous Games</a></p>
+    </div>
+    <div ng-if="!invalidGame" class="game-results">
+        <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options"></canvas>
+    </div>
+</div>
