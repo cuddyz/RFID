@@ -8,7 +8,6 @@ module.exports = function(app) {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: true}));
 
-
     //GAME ENDPOINTS
     app.get('/api/active-game', function(req, res) {
         Games.findOne({ "active": true}, function(err, data) {

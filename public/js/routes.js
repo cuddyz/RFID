@@ -58,6 +58,13 @@ rfidApp.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', fun
         controller: "userController"
     };
 
+    var previousGamesState = {
+        name: 'previous-games',
+        url: '/previous-games',
+        templateUrl: "/assets/views/previousGames.html",
+        controller: "previousGamesController"
+    };
+
     $stateProvider.state(homeState);
     $stateProvider.state(scannersState);
     $stateProvider.state(scanState);
@@ -66,6 +73,7 @@ rfidApp.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', fun
     $stateProvider.state(createState);
     $stateProvider.state(editState);
     $stateProvider.state(userState);
+    $stateProvider.state(previousGamesState);
 
     $urlRouterProvider.otherwise('/');
 

@@ -213,6 +213,15 @@
     margin-right: auto;
 }
 
+.result-page .game-results .previous-games,
+.result-page .game-results .previous-games:hover,
+.result-page .game-results .previous-games:focus {
+    float: right;
+    padding-top: 2rem;
+    color: #337ab7;
+    cursor: pointer;
+}
+
 .result-page .user-game-results {
     width: 50%;
     margin-right: auto;
