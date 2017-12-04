@@ -2,8 +2,8 @@
 <loader ng-show="loading"></loader>
 <div class="result-page">
     <div class="jumbotron no-live-game" ng-if="!gameRunning">
-        <p>Currently there isn't a game being played, please click the button below to start one!</p>
-        <p><a class="btn btn-primary" ui-sref="create" ui-sref-active="active" role="button">Create Game</a></p>
+        <p>Currently there isn't a game being played, click the button below to view previous game results.</p>
+        <p><a class="btn btn-primary" ui-sref="previous-games" ui-sref-active="active" role="button">Previous Games</a></p>
     </div>
     <div class="live-game" ng-show="gameRunning">
         <ul class="nav nav-tabs">
