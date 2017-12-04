@@ -23,6 +23,7 @@
             </form>
             <div class="user">
                 <h4 ng-if="user.alias">{{ user.alias }} (ID: {{ user.scanId }})</h4>
+                <h4 class="danger" ng-if="unregUser">Unregistered User</h4>
             </div>
             <div ng-show="locations" class="user-results">
                 <div ng-repeat="location in locations" class="scan">

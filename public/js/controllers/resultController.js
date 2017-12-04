@@ -80,6 +80,7 @@ rfidApp.controller('resultController', ['$scope', '$state', '$stateParams', '$ht
             params: {gameId: $scope.game._id, scanId: $scope.scannerInput}
         }).then(function success(res) {
             console.log(res);
+            $scope.unregUser = (res.data === "");
             $scope.user = res.data;
             $scope.scannerInput = "";
         }, function error(res) {
