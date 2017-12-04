@@ -42,7 +42,7 @@ rfidApp.controller('resultController', ['$scope', '$state', '$stateParams', '$ht
         }).then(function success(res) {
             console.log(res);
             $scope.scans = res.data;
-            $scope.scannerInput = "";
+            getUser();
             buildUserResults();
         }, function error(res) {
             console.log("ERROR " + res);
@@ -71,6 +71,21 @@ rfidApp.controller('resultController', ['$scope', '$state', '$stateParams', '$ht
                 }
             }
         }
+    };
+
+    var getUser = function() {
+        $http({
+            method: "GET",
+            url: "/api/user",
+            params: {gameId: $scope.game._id, scanId: $scope.scannerInput}
+        }).then(function success(res) {
+            console.log(res);
+            $scope.user = res.data;
+            $scope.scannerInput = "";
+        }, function error(res) {
+            console.log("ERROR " + res);
+            $scope.error = true;
+        });
     };
 
     var setupChart = function() {

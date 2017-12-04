@@ -223,7 +223,7 @@
 
 .result-page .user-results {
     text-align: left;
-    margin-top: 5rem;
+    margin-top: 3rem;
 }
 
 .result-page .user-results p {
@@ -240,6 +240,7 @@
 
 .result-page .user-results .scan {
     display: flex;
+    font-size: 1.5rem;
 }
 
 .result-page .user-results .scan-location,
