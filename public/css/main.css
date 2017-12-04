@@ -238,9 +238,24 @@
     color: #d9534f;
 }
 
-.result-page .user-results .scanner-info,
+.result-page .user-results .scan {
+    display: flex;
+}
+
+.result-page .user-results .scan-location,
 .result-page .user-results .scan-time {
-    margin-left: 5rem;
+    flex: 1;
+}
+
+.result-page .user-results .scanner-info {
+    flex: 2;
+}
+
+@media screen and (max-width: 650px) {
+    .result-page .user-results .scan-time,
+    .result-page .user-results .scanner-text {
+        display: none;
+    }
 }
 
 loader {

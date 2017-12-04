@@ -22,11 +22,11 @@
                 </div>
             </form>
             <div ng-show="locations" class="user-results">
-                <p ng-repeat="location in locations">
-                    {{ location.name }}
-                    <i class="fa" ng-class="{'fa-check': location.visited, 'fa-times': !location.visited}"></i>
-                    <span class="scanner-info" ng-if="location.visited">{{ location.scannerText }} (Scanner {{ location.scannerNum }}) <span class="scan-time">{{ location.scanTime }}</span></span>
-                </p>
+                <div ng-repeat="location in locations" class="scan">
+                    <span class="scan-location">{{ location.name }}<i class="fa" ng-class="{'fa-check': location.visited, 'fa-times': !location.visited}"></i></span>
+                    <span class="scanner-info" ng-if="location.visited"><span class="scanner-text">{{ location.scannerText }}</span> (Scanner {{ location.scannerNum }})</span>
+                    <span class="scan-time">{{ location.scanTime }}</span>
+                </div>
             </div>
         </div>
     </div>
