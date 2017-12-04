@@ -86,12 +86,13 @@
     display: flex;
 }
 
-.admin-page .game-detail-header .edit-button {
+.admin-page .game-detail-header .edit-users-button {
     margin-left: auto;
 }
 
-.admin-page .game-detail-header .edit-button,
-.admin-page .game-detail-header .deactivate-button {
+.admin-page .game-detail-header .edit-game-button,
+.admin-page .game-detail-header .deactivate-button,
+.admin-page .game-detail-header .edit-users-button {
     margin-top: 1rem;
     margin-right: 1rem;
 }

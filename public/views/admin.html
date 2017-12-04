@@ -8,7 +8,8 @@
     <div ng-if="gameRunning">
         <div class="game-detail-header">
             <h3 class="title">{{ game.name }}</h3>
-            <p class="edit-button"><a class="btn btn-primary" ui-sref="edit" ui-sref-active="active" role="button">Edit Game</a></p>
+            <p class="edit-users-button"><a class="btn btn-primary" ui-sref="edit-users" ui-sref-active="active" role="button">Edit Users</a></p>
+            <p class="edit-game-button"><a class="btn btn-primary" ui-sref="edit" ui-sref-active="active" role="button">Edit Game</a></p>
             <p class="deactivate-button"><a ng-click="deactivateGame()" class="btn btn-danger" role="button">Deactivate Game</a></p>
         </div>
         <div class="panel-group accordion" id="accordion">
