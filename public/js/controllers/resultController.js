@@ -66,7 +66,7 @@ rfidApp.controller('resultController', ['$scope', '$state', '$stateParams', '$ht
                     $scope.locations[i].visited = true;
                     $scope.locations[i].scannerText = $scope.locations[i].scanners[$scope.scans[j].scanner - 1].text;
                     $scope.locations[i].scannerNum = $scope.scans[j].scanner;
-                    $scope.locations[i].scanTime = $scope.scans[j].created;
+                    $scope.locations[i].scanTime = moment($scope.scans[j].created).format('h:mm:ss a');
                     break;
                 }
             }
