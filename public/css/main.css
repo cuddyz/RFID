@@ -6,7 +6,8 @@
 .user-page .no-live-game,
 .scan-page .invalid-scanner,
 .result-page .no-live-game,
-.previous-result-page .invalid-game {
+.previous-result-page .invalid-game,
+.edit-users-page .no-live-game {
     width: 100%;
     text-align: center;
 }
@@ -316,7 +317,8 @@ loader {
     color: #fff;
 }
 
-.previous-games-page {
+.previous-games-page,
+.edit-users-page {
     margin: 5rem;
 }
 
@@ -337,4 +339,9 @@ loader {
 .navbar .nav .active,
 .navbar .nav li:hover {
     background-color: #eee;
+}
+
+.edit-users-page .fa-pencil {
+    padding-left: .5rem;
+    cursor: pointer
 }
