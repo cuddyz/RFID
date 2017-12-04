@@ -22,7 +22,7 @@
                 </div>
             </form>
             <div class="user">
-                <h3 ng-if="user.alias">{{ user.alias }} ({{ user.scanId }})</h3>
+                <h4 ng-if="user.alias">{{ user.alias }} (ID: {{ user.scanId }})</h4>
             </div>
             <div ng-show="locations" class="user-results">
                 <div ng-repeat="location in locations" class="scan">

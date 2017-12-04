@@ -221,7 +221,8 @@
     margin-top: 5rem;
 }
 
-.result-page .user-results {
+.result-page .user-results,
+.result-page .user-game-results .user {
     text-align: left;
     margin-top: 3rem;
 }
