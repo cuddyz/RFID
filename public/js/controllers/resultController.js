@@ -1,6 +1,9 @@
-rfidApp.controller('resultController', ['$scope', '$state', '$stateParams', '$http', 'CurrentGame', 'Focus', function($scope, $state, $stateParams, $http, CurrentGame, Focus) {
+rfidApp.controller('resultController', ['$scope', '$state', '$stateParams', '$http', '$interval', 'CurrentGame', 'Focus', function($scope, $state, $stateParams, $http, $interval, CurrentGame, Focus) {
     $scope.type = $stateParams.type;
     $scope.loading = true;
+
+    var interval;
+
     if ($scope.type !== 'game' && $scope.type !== 'user') {
         $state.transitionTo('result', {type:"game"});
     }
@@ -49,6 +52,12 @@ rfidApp.controller('resultController', ['$scope', '$state', '$stateParams', '$ht
             $scope.error = true;
         });
     };
+
+    $scope.$on('$destroy', function() {
+        if (interval !== "") {
+            $interval.cancel(interval);
+        }
+    });
 
     var buildUserResults = function() {
         $scope.locations = $scope.game.locations;
@@ -99,6 +108,8 @@ rfidApp.controller('resultController', ['$scope', '$state', '$stateParams', '$ht
 
         $scope.data = [];
         getData();
+
+        interval = $interval(getData, 60000);
 
         $scope.options = {
             title: {
