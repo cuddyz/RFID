@@ -60,11 +60,13 @@ rfidApp.controller('resultController', ['$scope', '$state', '$stateParams', '$ht
             $scope.locations[i].visited = false;
             $scope.locations[i].scannerText = "";
             $scope.locations[i].scannerNum = "";
+            $scope.locations[i].scanTime = "";
             for (var j = 0; j < $scope.scans.length; j++) {
                 if ($scope.locations[i].number === $scope.scans[j].location) {
                     $scope.locations[i].visited = true;
                     $scope.locations[i].scannerText = $scope.locations[i].scanners[$scope.scans[j].scanner - 1].text;
                     $scope.locations[i].scannerNum = $scope.scans[j].scanner;
+                    $scope.locations[i].scanTime = $scope.scans[j].created;
                     break;
                 }
             }
