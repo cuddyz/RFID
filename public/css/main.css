@@ -312,3 +312,17 @@ loader {
     font-size: 1.3em;
     color: #fff;
 }
+
+.previous-games-page {
+    margin: 5rem;
+}
+
+.previous-games-page a,
+.previous-games-page a:hover,
+.previous-games-page a:focus {
+    display: block;
+    padding-top: 1.5rem;
+    color: #337ab7;
+    font-size: 1.7rem;
+    cursor: pointer;
+}
