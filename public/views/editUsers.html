@@ -12,8 +12,8 @@
             <div ng-if="user.edit" class="edit-user">
                 <input class="form-control" placeholder="Alias" value="{{ user.alias }}" />
                 <input class="form-control" value="ID: {{ user.scanId }}" readonly />
-                <button class="btn btn-success"><i ng-click="updateUser(user)" class="fa fa-check"></i></button>
-                <button class="btn btn-danger"><i ng-click="updateUser(user)" class="fa fa-times"></i></button>
+                <button ng-click="updateUser(user)" class="btn btn-success"><i class="fa fa-check"></i></button>
+                <button ng-click="cancelUpdate(user)" class="btn btn-danger"><i class="fa fa-times"></i></button>
             </div>
         </div>
     </div>
