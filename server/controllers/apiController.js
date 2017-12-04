@@ -18,6 +18,14 @@ module.exports = function(app) {
         });
     });
 
+    app.get('/api/inactive-games', function(req, res) {
+        Games.find({ "active": false}, 'name created', function(err, data) {
+            if (err) res.send("Error fetching inactive games");
+
+            res.send(data);
+        });
+    });
+
     app.post('/api/create-game', function(req, res) {
         var newGame = Games({
             name: req.body.name,
