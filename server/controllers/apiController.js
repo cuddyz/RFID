@@ -22,6 +22,7 @@ module.exports = function(app) {
         var newGame = Games({
             name: req.body.name,
             active: true,
+            created: new Date(),
             locations: req.body.locations
         });
         newGame.save(function(err) {
@@ -65,7 +66,7 @@ module.exports = function(app) {
                     scanId: req.body.scanId,
                     location: req.body.location,
                     scanner: req.body.scanner,
-                    scanTime: new Date()
+                    created: new Date()
                 });
                 newScan.save(function (err) {
                     if (err) res.send("Error submitting scan");

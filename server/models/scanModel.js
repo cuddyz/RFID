@@ -7,7 +7,7 @@ var scanSchema = new Schema({
     scanId: String,
     location: Number,
     scanner: Number,
-    scanTime: Date
+    created: Date
 });
 
 var Scans = mongoose.model('Scans', scanSchema);

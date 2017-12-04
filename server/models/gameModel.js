@@ -5,6 +5,7 @@ var Schema = mongoose.Schema;
 var gameSchema = new Schema({
     name: String,
     active: Boolean,
+    created: new Date(),
     locations: [
         {
             number: Number,
