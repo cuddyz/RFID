@@ -10,7 +10,7 @@
         <div ng-repeat="user in users">
             <p ng-if="!user.edit">{{ user.alias }} (ID: {{ user.scanId }}) <i ng-click="editUser(user)" class="fa fa-pencil primary"></i></p>
             <div ng-if="user.edit" class="edit-user">
-                <input class="form-control" placeholder="Alias" value="{{ user.alias }}" />
+                <input ng-model="user.newAlias" class="form-control" placeholder="Alias" value="{{ user.alias }}" />
                 <input class="form-control" value="ID: {{ user.scanId }}" readonly />
                 <button ng-click="updateUser(user)" class="btn btn-success"><i class="fa fa-check"></i></button>
                 <button ng-click="cancelUpdate(user)" class="btn btn-danger"><i class="fa fa-times"></i></button>

@@ -30,12 +30,28 @@ rfidApp.controller('editUsersController', ['$scope', '$http', 'CurrentGame', fun
     };
 
     $scope.editUser = function(user) {
+        user.newAlias = user.alias;
         user.edit = true;
     };
 
     $scope.updateUser = function(user) {
-        //PUT call
-        user.edit = false;
+        var updatedUser = {
+            id: user._id,
+            alias: user.newAlias
+        };
+
+        $http({
+            method: "PUT",
+            url: "/api/update-user",
+            data: updatedUser
+        }).then(function success(res) {
+            console.log(res);
+            user.alias = user.newAlias;
+            user.edit = false;
+        }, function error(res) {
+            console.log("ERROR " + res);
+            $scope.error = true;
+        });
     };
 
     $scope.cancelUpdate = function(user) {
