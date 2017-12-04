@@ -81,6 +81,7 @@ rfidApp.controller('resultController', ['$scope', '$state', '$stateParams', '$ht
         }).then(function success(res) {
             console.log(res);
             $scope.unregUser = (res.data === "");
+            $scope.badId = $scope.scannerInput;
             $scope.user = res.data;
             $scope.scannerInput = "";
         }, function error(res) {
