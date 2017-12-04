@@ -333,6 +333,7 @@ loader {
     cursor: pointer;
 }
 
-.navbar .nav .active {
+.navbar .nav .active,
+.navbar .nav li:hover {
     background-color: #eee;
 }

@@ -27,7 +27,10 @@ rfidApp.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', fun
         name: 'result',
         url: '/result/:type',
         templateUrl: "/assets/views/result.html",
-        controller: "resultController"
+        controller: "resultController",
+        params: {
+            type: 'game'
+        }
     };
 
     var adminState = {
