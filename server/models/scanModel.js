@@ -6,7 +6,8 @@ var scanSchema = new Schema({
     gameId: String,
     scanId: String,
     location: Number,
-    scanner: Number
+    scanner: Number,
+    scanTime: Date
 });
 
 var Scans = mongoose.model('Scans', scanSchema);

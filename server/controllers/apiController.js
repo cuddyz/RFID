@@ -64,7 +64,8 @@ module.exports = function(app) {
                     gameId: req.body.gameId,
                     scanId: req.body.scanId,
                     location: req.body.location,
-                    scanner: req.body.scanner
+                    scanner: req.body.scanner,
+                    scanTime: new Date()
                 });
                 newScan.save(function (err) {
                     if (err) res.send("Error submitting scan");
