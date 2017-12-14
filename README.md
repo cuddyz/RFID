@@ -1,7 +1,7 @@
 # RFID
 Group project from CS 4500
 
-Built from my Node-Angular-Template
+Built from my [MEAN-Template](https://github.com/cuddyz/MEAN-Template)
 
 ### Dependencies
 [NodeJS](https://nodejs.org/) is required to run this project.
